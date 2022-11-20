@@ -4,35 +4,31 @@ import enums.TipoMedicion;
 
 import java.util.*;
 
-/**
- * 
- */
-public class Medicion {
 
-    /**
-     * Default constructor
-     */
-    public Medicion() {
+public class Medicion 
+{
+    private TipoMedicion tipo;
+    private int valor;
+    private Date fecha;
+    private Clasificacion Clasificacion;
+
+    public Medicion() 
+    {
+
     }
 
-    /**
-     * 
-     */
-    private TipoMedicion tipo;
+    public int getValor()
+    {
+        return valor;
+    }
 
-    /**
-     * 
-     */
-    private int valor;
+    public TipoMedicion getTipo()
+    {
+        return tipo;
+    }
 
-    /**
-     * 
-     */
-    private Date fecha;
-
-    /**
-     * 
-     */
-    private enums.Clasificacion Clasificacion;
-
+    public Clasificacion getClasificacion()
+    {
+        return Clasificacion;
+    }
 }

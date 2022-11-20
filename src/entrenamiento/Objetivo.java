@@ -10,18 +10,35 @@ public class Objetivo extends Observados
 
 	private TipoObjetivo tipoObjetivo;
     private Rutina rutina;
+    private int pesoInicial;
 
-    public Objetivo(TipoObjetivo tipoObjetivo, Rutina rutina)
+    public Objetivo(TipoObjetivo tipoObjetivo, Rutina rutina, Socio socio)
     {
     	this.tipoObjetivo = tipoObjetivo;
     	this.rutina = rutina;
+        this.pesoInicial = ObtenerPesoInicial(socio);
+
     }
     
-    public void seTipoObjetivo(TipoObjetivo tipoObjetivo) 
+    private int ObtenerPesoInicial(Socio socio)
     {
-        this.tipoObjetivo = tipoObjetivo;
-    }
+        List<Medicion>  mediciones = socio.getMediciones();
+        int largo = mediciones.size() - 1;
 
+        for(int i = 0; i > largo; i++ )
+        {
+            Medicion m = mediciones.get(i);
+            if(m.getClasificacion() == Actual )
+            {
+                if(m.getTipo() == Peso)
+                {
+                    return m.valor;
+                }
+            }
+        }
+
+        return -1;
+    }
 
     public Rutina CrearRutina() 
     {
@@ -33,4 +50,13 @@ public class Objetivo extends Observados
         return null;
     }
 
+    public void seTipoObjetivo(TipoObjetivo tipoObjetivo) 
+    {
+        this.tipoObjetivo = tipoObjetivo;
+    }
+
+    public int getPesoInicial()
+    {
+        return pesoInicial;
+    }
 }

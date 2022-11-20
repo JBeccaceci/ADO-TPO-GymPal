@@ -12,6 +12,7 @@ public class Socio extends Observados
 {
     private int edad;
     private Sexo sexo;
+    private int peso;
     private int altura;
     private Objetivo objetivo;
     private List<Medicion> medicion;
@@ -37,4 +38,23 @@ public class Socio extends Observados
 
     }
 
+    public int getPeso()
+    {
+        return this.peso;
+    } 
+
+    public int getAltura()
+    {
+        return this.altura;
+    }
+
+    public Sexo getSexo()
+    {
+        return this.sexo;
+    }
+
+    public List<Medicion> getMediciones()
+    {
+       return medicion;
+    }
 }
