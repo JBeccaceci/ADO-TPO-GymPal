@@ -8,24 +8,23 @@ import observer.Observados;
 public class Objetivo extends Observados 
 {
 
-    private TipoObjetivo tipoObjetivo;
+	private TipoObjetivo tipoObjetivo;
     private Rutina rutina;
 
-    public Objetivo(TipoObjetivo tipoObjetivo) 
+    public Objetivo(TipoObjetivo tipoObjetivo, Rutina rutina)
+    {
+    	this.tipoObjetivo = tipoObjetivo;
+    	this.rutina = rutina;
+    }
+    
+    public void seTipoObjetivo(TipoObjetivo tipoObjetivo) 
     {
         this.tipoObjetivo = tipoObjetivo;
-    }
-
-    
-    public void CambiarObjetivo(TipoObjetivo tipo) 
-    {
-
     }
 
 
     public Rutina CrearRutina() 
     {
-
         return null;
     }
 

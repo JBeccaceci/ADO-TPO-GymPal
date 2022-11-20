@@ -41,7 +41,7 @@ public class Entrenamiento extends Rutina {
     	nmroEjercicio++; 
     }
     
-    public void mostrarEjercicio()
+    private void mostrarEjercicio()
     {	
     	System.out.println("Nombre: " + ejercicios.get(nmroEjercicio).getNombre());
     	System.out.println("Series: " + ejercicios.get(nmroEjercicio).getSeries());

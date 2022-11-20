@@ -13,7 +13,8 @@ public class TonificarCuerpo extends TipoObjetivo {
     }
 
     @Override
-    public Rutina crearRutina(List<Entrenamiento> entrenamientos) {
+    public Rutina crearRutina(List<Entrenamiento> entrenamientos)
+    {
         return new Rutina(entrenamientos, ExigenciaMuscular.Bajo, 1, 3);
     }
 

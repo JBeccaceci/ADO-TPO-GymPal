@@ -36,7 +36,14 @@ public class Ejercicio extends Entrenamiento
     {
     	this.repetcionesCompletadas = 0;
     }
-
+    
+    public void modificarEjercicio(int series, int repeticiones, int peso)
+	{
+		this.series = series;
+		this.repeticiones = repeticiones;
+		this.pesoAsignado = peso;
+	}
+    
     public String getNombre() 
     {
         return nombre;
@@ -66,5 +73,4 @@ public class Ejercicio extends Entrenamiento
 	{
 		return repetcionesCompletadas;
 	}
-   
 }
