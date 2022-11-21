@@ -11,7 +11,7 @@ public class Medicion {
     private TipoMedicion tipo;
     private int valor;
     private Date fecha;
-    private enums.Clasificacion clasificacion;
+    private Clasificacion clasificacion;
 
     public Medicion() {
 

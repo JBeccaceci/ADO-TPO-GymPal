@@ -12,16 +12,13 @@ public class Gamificacion
         this.Trofeos = trofeos;
     }
 
-    public void agregarTrofeo(ITrofeo trofeo, Socio socio)
-    {
-        if(trofeo.OtorgarTrofeo(socio) == true)
-        {
+    public void agregarTrofeo(ITrofeo trofeo, Socio socio) {
+        if(trofeo.OtorgarTrofeo(socio)) {
             this.Trofeos.add(trofeo);
         }
     }
 
-    public void eliminarTrofeo(ITrofeo trofeo)
-    {
+    public void eliminarTrofeo(ITrofeo trofeo) {
         this.Trofeos.remove(trofeo);
     }
 

@@ -17,6 +17,7 @@ public class Socio extends Observados {
     private Objetivo objetivo;
     private List<Medicion> mediciones;
     private Historial historial;
+    private Observados observados;
 
     public Socio(int edad, Sexo sexo, int altura, Objetivo objetivo) {
         this.edad = edad;
@@ -24,6 +25,7 @@ public class Socio extends Observados {
         this.altura = altura;
         this.mediciones = new ArrayList<>();
         this.objetivo = objetivo;
+        this.observados = new Observados();
 
         init();
     }

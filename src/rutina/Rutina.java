@@ -34,8 +34,7 @@ public class Rutina extends Observados {
     	mostrarEntrenamiento();
     }
 
-    public void finalizarEntrenamiento(Socio socio) 
-    {
+    public void finalizarEntrenamiento(Socio socio) {
         Historial historial = socio.getHistorial();
         historial.guardarEntrenamientosCompletados();
 
@@ -43,8 +42,7 @@ public class Rutina extends Observados {
     	nmroEntrenamiento++;
     }
     
-    private void mostrarEntrenamiento()
-    {
+    private void mostrarEntrenamiento() {
     	List<Ejercicio> ejercicios =  entrenamientos.get(nmroEntrenamiento).getEjercicios();
     	int largo = ejercicios.size() - 1;
     	

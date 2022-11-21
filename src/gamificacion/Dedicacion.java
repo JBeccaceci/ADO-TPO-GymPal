@@ -10,23 +10,13 @@ public class Dedicacion implements ITrofeo
 {
     public String Nombre;
 
-    public Dedicacion(String nombre) 
-    {
+    public Dedicacion(String nombre) {
         this.Nombre = nombre;
     }
 
-    public boolean OtorgarTrofeo(Socio socio) 
-    {
-        //Controlamos que cumplio objetivo
-        //Y si es true, luego en gamificacion lo agregamos
+    public boolean OtorgarTrofeo(Socio socio) {
         Objetivo obj = socio.getObjetivo();
         TipoObjetivo tipo = obj.getTipoObjetivo();
-
-        if(tipo.cumpleObjetivo(socio.getMediciones()) == true)
-        {
-            return true;
-        }
-
-        return false;
+        return tipo.cumpleObjetivo(socio.getMediciones());
     }
 }
