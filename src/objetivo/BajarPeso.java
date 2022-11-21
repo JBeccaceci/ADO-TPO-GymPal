@@ -1,48 +1,57 @@
 package objetivo;
 
+import builder.EjerciciosBuilder;
+import entrenamiento.Ejercicio;
 import entrenamiento.Entrenamiento;
+import mediciones.Medicion;
 import rutina.Rutina;
 import enums.ExigenciaMuscular;
 import enums.Sexo;
 import objetivo.TipoObjetivo;
 import entrenamiento.Objetivo;
 
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static enums.Clasificacion.Actual;
+import static enums.TipoMedicion.Peso;
 
 /**
  * 
  */
 public class BajarPeso extends TipoObjetivo {
+    private static final int PESO_IDEAL = 60;
 
-    public BajarPeso() 
-    {
-        super();
+    public BajarPeso() { }
+
+    @Override
+    public Rutina crearRutina() {
+        return this.generarRutina();
     }
 
     @Override
-    public Rutina crearRutina(List<Entrenamiento> entrenamientos) 
-    {
-        return new Rutina(entrenamientos, ExigenciaMuscular.Medio, 80, 3);
-    }
-
-    public boolean VerificarCumplimiento(Obj obj) 
-    {
-        int pesoInicial = obj.getPesoInicial();
-        int pesoIdeal = CalcularPesoIdeal(pesoInicial , socio.getAltura(), socio.getSexo());
-
-        if(pesoInicial != pesoIdeal)
-        {
-            return false;
+    public boolean cumpleObjetivo(List<Medicion> mediciones) {
+        int pesoActual = 0;
+        for (Medicion m : mediciones) {
+            if (m.getClasificacion() == Actual && m.getTipo() == Peso) {
+                pesoActual = m.getValor();
+                break;
+            }
         }
-
-        return true;
+        return pesoActual <= PESO_IDEAL;
     }
 
-    private int CalcularPesoIdeal(Objetivo obj , int altura, Sexo sexo)
-    {
-        int pesoInicial = obj.getPesoInicial();
+    private Rutina generarRutina() {
+        List<Ejercicio> ejercicioList = EjerciciosBuilder.obtenerEjercicios().getEjercicioList();
 
-        return 0;
+        //  Generamos un entrenamiento en base al criterio del objetivo
+        Entrenamiento entrenamiento = new Entrenamiento();
+        ejercicioList.stream()
+                .filter(e -> e.getNivelAerobico() >= 3).collect(Collectors.toList())
+                .forEach(entrenamiento::agregarEjercicio);
+
+        List<Entrenamiento> entrenamientoList = Collections.singletonList(entrenamiento);
+        return new Rutina(entrenamientoList, ExigenciaMuscular.Medio, 80, 3);
     }
+
 }

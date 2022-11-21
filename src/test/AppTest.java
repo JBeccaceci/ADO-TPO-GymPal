@@ -1,15 +1,18 @@
-/*package test;
-
-import static org.junit.Assert.assertTrue;
+package test;
 
 import entrenamiento.Ejercicio;
 import entrenamiento.Entrenamiento;
+import entrenamiento.Objetivo;
 import enums.ExigenciaMuscular;
 import enums.GruposMusculares;
 import enums.Sexo;
 import objetivo.MantenerFigura;
+import org.junit.jupiter.api.Test;
+import rutina.Rutina;
 import socio.Socio;
-import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AppTest {
 
@@ -28,7 +31,6 @@ public class AppTest {
         Ejercicio bicicleta = new Ejercicio("Bicicleta", GruposMusculares.Piernas, ExigenciaMuscular.Bajo, 4, 5, 8, 0);
         Ejercicio cinta = new Ejercicio("Cinta", GruposMusculares.Piernas, ExigenciaMuscular.Bajo, 4, 5, 7, 0);
 
-
         //  Entrenamiento para bajar peso (aerobico >= 3)
         Entrenamiento entramientoBajarPeso = new Entrenamiento();
         entramientoBajarPeso.agregarEjercicio(bancoPlano);
@@ -43,14 +45,22 @@ public class AppTest {
         Entrenamiento entramientoFigura = new Entrenamiento();
         entramientoFigura.agregarEjercicio(bicicleta);
         entramientoFigura.agregarEjercicio(cinta);
+        List<Entrenamiento> entrenamientoList = new ArrayList<>();
+        entrenamientoList.add(entramientoFigura);
 
-        MantenerFigura figura = new MantenerFigura();
-        figura.crearRutina(entramientoFigura);
+        MantenerFigura mantenerFigura = new MantenerFigura();
 
-        Socio socio = new Socio(20, Sexo.Masculino, 1, new MantenerFigura());
-        assertTrue( true );
+        Objetivo objetivo = new Objetivo(mantenerFigura);
+
+        Socio socio = new Socio(20, Sexo.Masculino, 1, objetivo);
     }
 
+    @Test
+    public void test_NuevoSocio_Crea_Rutina() {
+        Objetivo objetivo = new Objetivo(new MantenerFigura());
+
+        Socio socio = new Socio(20, Sexo.Masculino, 1, objetivo);
+    }
 
 }
-*/
+

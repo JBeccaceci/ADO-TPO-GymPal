@@ -1,6 +1,6 @@
 package objetivo;
 
-import entrenamiento.Entrenamiento;
+import mediciones.Medicion;
 import rutina.Rutina;
 
 import java.util.List;
@@ -10,15 +10,13 @@ import java.util.List;
  */
 public abstract class TipoObjetivo {
 
-    public TipoObjetivo() {
-    }
+    public TipoObjetivo() { }
 
-    public abstract Rutina crearRutina(List<Entrenamiento> entrenamientos);
+    public abstract Rutina crearRutina();
 
-    public boolean VerificarCumplimiento() {
-        return false;
-    }
+    public abstract boolean cumpleObjetivo(List<Medicion> mediciones);
 
+    /*
     private boolean ProponerMantenerFigura()
     {
         System.out.println("Le gustaria pasa al objetivo MANTENER FIGURA: ");
@@ -33,5 +31,7 @@ public abstract class TipoObjetivo {
 
         return false;
     }
+
+     */
 
 }

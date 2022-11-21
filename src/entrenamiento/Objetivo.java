@@ -1,48 +1,47 @@
 package entrenamiento;
 
+import mediciones.Medicion;
 import rutina.Rutina;
 import rutina.RutinaReforzada;
 import objetivo.TipoObjetivo;
 import observer.Observados;
+import socio.Socio;
 
-public class Objetivo extends Observados 
-{
+import java.util.List;
+
+import static enums.Clasificacion.Actual;
+import static enums.TipoMedicion.Peso;
+
+public class Objetivo extends Observados {
 
 	private TipoObjetivo tipoObjetivo;
     private Rutina rutina;
     private int pesoInicial;
 
-    public Objetivo(TipoObjetivo tipoObjetivo, Rutina rutina, Socio socio)
-    {
+    public Objetivo(TipoObjetivo tipoObjetivo) {
     	this.tipoObjetivo = tipoObjetivo;
-    	this.rutina = rutina;
-        this.pesoInicial = ObtenerPesoInicial(socio);
-
+    	this.rutina = tipoObjetivo.crearRutina();
     }
-    
-    private int ObtenerPesoInicial(Socio socio)
-    {
-        List<Medicion>  mediciones = socio.getMediciones();
-        int largo = mediciones.size() - 1;
 
-        for(int i = 0; i > largo; i++ )
-        {
-            Medicion m = mediciones.get(i);
-            if(m.getClasificacion() == Actual )
-            {
-                if(m.getTipo() == Peso)
-                {
-                    return m.valor;
+    public Objetivo(TipoObjetivo tipoObjetivo, List<Medicion> mediciones) {
+        this(tipoObjetivo);
+        iniciarMediciones(mediciones);
+    }
+
+    public void cumpleObjetivo(List<Medicion> mediciones) {
+        if (tipoObjetivo.cumpleObjetivo(mediciones)) {
+
+        }
+    }
+
+    public void iniciarMediciones(List<Medicion> mediciones) {
+        for (Medicion m : mediciones) {
+            if (m.getClasificacion() == Actual) {
+                if (m.getTipo() == Peso) {
+                    pesoInicial = m.getValor();
                 }
             }
         }
-
-        return -1;
-    }
-
-    public Rutina CrearRutina() 
-    {
-        return null;
     }
 
     public RutinaReforzada ReforzarRutina() 
@@ -50,13 +49,11 @@ public class Objetivo extends Observados
         return null;
     }
 
-    public void seTipoObjetivo(TipoObjetivo tipoObjetivo) 
-    {
+    public void seTipoObjetivo(TipoObjetivo tipoObjetivo) {
         this.tipoObjetivo = tipoObjetivo;
     }
 
-    public int getPesoInicial()
-    {
+    public int getPesoInicial() {
         return pesoInicial;
     }
 }
