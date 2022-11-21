@@ -16,11 +16,11 @@ public class Objetivo extends Observados
     {
     	this.tipoObjetivo = tipoObjetivo;
     	this.rutina = rutina;
-        this.pesoInicial = ObtenerPesoInicial(socio);
+        this.pesoInicial = ObtenerPeso(socio);
 
     }
     
-    private int ObtenerPesoInicial(Socio socio)
+    private int ObtenerPeso(Socio socio)
     {
         List<Medicion>  mediciones = socio.getMediciones();
         int largo = mediciones.size() - 1;
@@ -38,6 +38,21 @@ public class Objetivo extends Observados
         }
 
         return -1;
+    }
+
+    private boolean ProponerMantenerFigura()
+    {
+        System.out.println("Le gustaria pasa al objetivo MANTENER FIGURA: ");
+        Scanner usuario = new Scanner (System.in);
+        System.out.println("S/N");
+    	String opcion = usuario.next();
+
+        if(opcion == "S")
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public Rutina CrearRutina() 
@@ -58,5 +73,10 @@ public class Objetivo extends Observados
     public int getPesoInicial()
     {
         return pesoInicial;
+    }
+
+    public Rutina getRutina()
+    {
+        return rutina;
     }
 }

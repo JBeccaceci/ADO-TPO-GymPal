@@ -11,12 +11,28 @@ public class Gamificacion
     {
         this.Trofeo = trofeos;
     }
-    
-    public void OtorgarTrofeo() 
+
+    public void agregarTrofeo(Trofeo trofeo)
     {
-        //gamificacion no se encargaria de otorgar trofeos, sino la clase Trofeo es la que otorga
+        if(trofeo.OtorgarTrofeo() == true)
+        {
+            this.ejercicios.add(trofeo);
+        }
     }
 
+    public void eliminarTrofeo(Trofeo trofeo)
+    {
+        this.ejercicios.remove(trofeo);
+    }
+
+
+    /*public void OtorgarTrofeo() 
+    {
+        //gamificacion no se encargaria de otorgar trofeos, sino una clase Trofeo es la que otorga
+    }
+
+    
+    //PARA MI ESTO NO LO HACE GAMIFICACION, cada trofeo realiza el control estilo strategy
     public void objetivoCumplido(Socio socio) 
     {
         Objetivo obj = socio.getObjetivo;
@@ -31,16 +47,9 @@ public class Gamificacion
     public void medicionCumplida() 
     {
         //que deberia hacer esto?, no lo cumple el objetivo cumplido ya lo de las mediciones?
+        //peso
+        //y grasa muscular quiza?
+        //pero ni lo pide en el enunciado, solo menciona peso
     }
-
-    public void agregarTrofeo(Trofeo trofeo)
-    {
-        this.ejercicios.add(trofeo);
-    }
-
-    public void eliminarTrofeo(Trofeo trofeo)
-    {
-        this.ejercicios.remove(trofeo);
-    }
-
+    */
 }

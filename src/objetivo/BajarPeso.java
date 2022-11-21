@@ -28,7 +28,7 @@ public class BajarPeso extends TipoObjetivo {
 
     public boolean VerificarCumplimiento(Obj obj) 
     {
-        int pesoInicial = obj.getPesoInicial();
+        int peso = obj.ObtenerPeso();
         int pesoIdeal = CalcularPesoIdeal(pesoInicial , socio.getAltura(), socio.getSexo());
 
         if(pesoInicial != pesoIdeal)

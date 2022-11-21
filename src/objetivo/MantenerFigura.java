@@ -9,11 +9,13 @@ import java.util.List;
 
 public class MantenerFigura extends TipoObjetivo {
 
-    public MantenerFigura() {
+    public MantenerFigura() 
+    {
+        
     }
 
-    @Override
-    public Rutina crearRutina(List<Entrenamiento> entrenamientos) {
+    public Rutina crearRutina(List<Entrenamiento> entrenamientos) 
+    {
         return new Rutina(entrenamientos, ExigenciaMuscular.Bajo, 80, 3);
     }
 
