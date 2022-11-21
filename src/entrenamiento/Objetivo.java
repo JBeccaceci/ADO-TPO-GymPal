@@ -4,6 +4,15 @@ import rutina.Rutina;
 import rutina.RutinaReforzada;
 import objetivo.TipoObjetivo;
 import observer.Observados;
+import enums.Clasificacion;
+import enums.TipoMedicion;
+import mediciones.Medicion;
+import socio.Socio;
+
+import java.util.List;
+import java.util.Scanner;
+
+
 
 public class Objetivo extends Observados 
 {
@@ -20,7 +29,7 @@ public class Objetivo extends Observados
 
     }
     
-    private int ObtenerPeso(Socio socio)
+    public int ObtenerPeso(Socio socio)
     {
         List<Medicion>  mediciones = socio.getMediciones();
         int largo = mediciones.size() - 1;
@@ -28,11 +37,11 @@ public class Objetivo extends Observados
         for(int i = 0; i > largo; i++ )
         {
             Medicion m = mediciones.get(i);
-            if(m.getClasificacion() == Actual )
+            if(m.getClasificacion() == Clasificacion.Actual )
             {
-                if(m.getTipo() == Peso)
+                if(m.getTipo() == TipoMedicion.Peso)
                 {
-                    return m.valor;
+                    return m.getValor();
                 }
             }
         }
@@ -69,7 +78,12 @@ public class Objetivo extends Observados
     {
         this.tipoObjetivo = tipoObjetivo;
     }
-
+    
+    public TipoObjetivo getTipoObjetivo()
+    {
+    	return tipoObjetivo;
+    }
+    
     public int getPesoInicial()
     {
         return pesoInicial;

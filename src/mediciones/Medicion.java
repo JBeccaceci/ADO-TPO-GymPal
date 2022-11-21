@@ -1,6 +1,7 @@
 package mediciones;
 
 import enums.TipoMedicion;
+import enums.Clasificacion;
 
 import java.util.*;
 

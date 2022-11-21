@@ -1,5 +1,6 @@
 package gamificacion;
 
+import socio.Socio;
 
 public interface ITrofeo  
 {

@@ -5,6 +5,7 @@ import entrenamiento.Ejercicio;
 import enums.ExigenciaMuscular;
 import observer.Observados;
 import socio.Historial;
+import socio.Socio;
 
 import java.util.*;
 

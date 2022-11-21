@@ -18,7 +18,7 @@ public class Historial
         EntrenamientosCompletados++;
     }
 
-    public SumarCantPesajesMes()
+    public void SumarCantPesajesMes()
     {
         if(MesActual() != mesUltimoPesaje)
         {

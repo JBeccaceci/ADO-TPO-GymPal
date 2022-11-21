@@ -2,7 +2,10 @@ package gamificacion;
 
 import java.util.*;
 
-public class Creido 
+import socio.Historial;
+import socio.Socio;
+
+public class Creido implements ITrofeo
 {
     public String Nombre;
        
@@ -13,7 +16,10 @@ public class Creido
 
     public boolean OtorgarTrofeo(Socio socio) 
     {
-        if(socio.historial.getCantidadPesajesMes() > 3)
+    	Historial h = socio.getHistorial();
+    	int cantidadPesajeMes = h.getCantidadPesajesMes();
+    	
+        if(cantidadPesajeMes > 3)
         {
             return true;
         }

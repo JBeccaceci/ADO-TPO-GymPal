@@ -2,9 +2,11 @@ package gamificacion;
 
 import java.util.*;
 
+import entrenamiento.Objetivo;
 import objetivo.TipoObjetivo;
+import socio.Socio;
 
-public class Dedicacion 
+public class Dedicacion implements ITrofeo
 {
     public String Nombre;
 
@@ -18,9 +20,9 @@ public class Dedicacion
         //Controlamos que cumplio objetivo
         //Y si es true, luego en gamificacion lo agregamos
         Objetivo obj = socio.getObjetivo();
-        TipoObjetivo tipo = obj.getTipo();
+        TipoObjetivo tipo = obj.getTipoObjetivo();
 
-        if(tipo.VerificarCumplimiento() == true)
+        if(tipo.VerificarCumplimiento(obj, socio) == true)
         {
             return true;
         }

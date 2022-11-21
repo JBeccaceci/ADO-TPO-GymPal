@@ -1,13 +1,16 @@
 package objetivo;
 
 import entrenamiento.Entrenamiento;
+import entrenamiento.Objetivo;
 import rutina.Rutina;
+import socio.Socio;
 import enums.ExigenciaMuscular;
+import enums.Sexo;
 import objetivo.TipoObjetivo;
 
 import java.util.List;
 
-public class MantenerFigura extends TipoObjetivo {
+public class MantenerFigura implements TipoObjetivo {
 
     public MantenerFigura() 
     {
@@ -19,12 +22,12 @@ public class MantenerFigura extends TipoObjetivo {
         return new Rutina(entrenamientos, ExigenciaMuscular.Bajo, 80, 3);
     }
 
-    public boolean VerificarCumplimiento(Obj obj) 
+    public boolean VerificarCumplimiento(Objetivo obj, Socio socio) 
     {
-        int pesoInicial = obj.getPesoInicial();
-        int pesoIdeal = CalcularPesoIdeal(pesoInicial , socio.getAltura(), socio.getSexo());
+        int peso = obj.ObtenerPeso(socio);
+        int pesoIdeal = CalcularPesoIdeal(peso , socio.getAltura(), socio.getSexo());
 
-        if(pesoInicial != pesoIdeal)
+        if(peso != pesoIdeal)
         {
             return false;
         }
@@ -32,9 +35,8 @@ public class MantenerFigura extends TipoObjetivo {
         return true;
     }
 
-    private int CalcularPesoIdeal(Objetivo obj , int altura, Sexo sexo)
+    public int CalcularPesoIdeal(int peso , int altura, Sexo sexo)
     {
-        int pesoInicial = obj.getPesoInicial();
 
         return 0;
     }

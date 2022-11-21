@@ -5,24 +5,24 @@ import socio.Socio;
 
 public class Gamificacion 
 {
-    public List<Trofeo> Trofeo;
+    public List<ITrofeo> Trofeos;
 
-    public Gamificacion(List<Trofeo> trofeos) 
+    public Gamificacion(List<ITrofeo> trofeos) 
     {
-        this.Trofeo = trofeos;
+        this.Trofeos = trofeos;
     }
 
-    public void agregarTrofeo(Trofeo trofeo)
+    public void agregarTrofeo(ITrofeo trofeo, Socio socio)
     {
-        if(trofeo.OtorgarTrofeo() == true)
+        if(trofeo.OtorgarTrofeo(socio) == true)
         {
-            this.ejercicios.add(trofeo);
+            this.Trofeos.add(trofeo);
         }
     }
 
-    public void eliminarTrofeo(Trofeo trofeo)
+    public void eliminarTrofeo(ITrofeo trofeo)
     {
-        this.ejercicios.remove(trofeo);
+        this.Trofeos.remove(trofeo);
     }
 
 

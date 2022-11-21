@@ -2,10 +2,15 @@ package gamificacion;
 
 import java.util.*;
 
+import entrenamiento.Objetivo;
+import objetivo.TipoObjetivo;
+import entrenamiento.Entrenamiento;
+import rutina.Rutina;
 import socio.Historial;
+import socio.Socio;
 
 
-public class Constancia 
+public class Constancia implements ITrofeo
 {
     public String Nombre;
 
@@ -19,7 +24,7 @@ public class Constancia
         Historial historial = socio.getHistorial();
         Objetivo obj = socio.getObjetivo();
         Rutina rutina = obj.getRutina();
-        Entrenamientos entrenamientos = rutina.getEntrenamientos();
+        List<Entrenamiento> entrenamientos = rutina.getEntrenamientos();
 
         int totalEntrenamientos = entrenamientos.size() - 1;
         int entrenamientosCompletados = historial.getEntrenamientosCompletados();
