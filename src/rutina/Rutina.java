@@ -4,6 +4,7 @@ import entrenamiento.Entrenamiento;
 import entrenamiento.Ejercicio;
 import enums.ExigenciaMuscular;
 import observer.Observados;
+import socio.Historial;
 
 import java.util.*;
 
@@ -27,17 +28,16 @@ public class Rutina extends Observados {
         this.nivelAerobico = nivelAerobico;
     }
 
-    public void comenzarEntrenamiento() 
+    public void comenzarEntrenamiento(Socio socio) 
     {
-    	//Serian una funcion de la app
-    	//comenzar();
     	mostrarEntrenamiento();
     }
 
-    public void finalizarEntrenamiento() 
+    public void finalizarEntrenamiento(Socio socio) 
     {
-    	//Serian una funcion de la app
-    	//finalizado();
+        Historial historial = socio.getHistorial();
+        historial.guardarEntrenamientosCompletados();
+
     	System.out.println("Entrenamiento Finalizado");
     	nmroEntrenamiento++;
     }
@@ -52,5 +52,10 @@ public class Rutina extends Observados {
     	{
     		System.out.println("Nombre: " + ejercicios.get(i).getNombre());
     	}
-    }  
+    } 
+    
+    public List<Entrenamiento> getEntrenamientos()
+    {
+        return entrenamientos;
+    }
 }

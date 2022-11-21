@@ -16,6 +16,7 @@ public class Socio extends Observados {
     private int altura;
     private Objetivo objetivo;
     private List<Medicion> mediciones;
+    private Historial historial;
 
     public Socio(int edad, Sexo sexo, int altura, Objetivo objetivo) {
         this.edad = edad;
@@ -29,6 +30,14 @@ public class Socio extends Observados {
 
     private void init() {
         mediciones.add(new Medicion(TipoMedicion.Altura, this.altura));
+    }
+
+    public Socio(int edad, Sexo sexo, int altura, Objetivo objetivo, Historial historial) {
+        this.edad = edad;
+        this.sexo = sexo;
+        this.altura = altura;
+        this.objetivo = objetivo;
+        this.historial = historial;
     }
 
     /**
@@ -52,18 +61,19 @@ public class Socio extends Observados {
         mediciones.add(medicion);
     }
 
-    public int getPeso()
-    {
+    public void NuevaMedicion(Medicion medicion) {
+        historial.SumarCantPesajes();
+    }
+
+    public int getPeso() {
         return this.peso;
     } 
 
-    public int getAltura()
-    {
+    public int getAltura() {
         return this.altura;
     }
 
-    public Sexo getSexo()
-    {
+    public Sexo getSexo() {
         return this.sexo;
     }
 
@@ -71,8 +81,11 @@ public class Socio extends Observados {
        return mediciones;
     }
 
-    public Objetivo getObjetivo()
-    {
+    public Objetivo getObjetivo() {
         return objetivo;
+    }
+
+    public Objetivo getHistorial() {
+        return historial;
     }
 }

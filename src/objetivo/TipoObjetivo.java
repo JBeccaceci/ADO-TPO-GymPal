@@ -5,9 +5,6 @@ import rutina.Rutina;
 
 import java.util.List;
 
-/**
- * 
- */
 public abstract class TipoObjetivo {
 
     public TipoObjetivo() { }
@@ -33,5 +30,4 @@ public abstract class TipoObjetivo {
     }
 
      */
-
 }

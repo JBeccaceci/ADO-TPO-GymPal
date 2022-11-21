@@ -6,14 +6,19 @@ public class Creido
 {
     public String Nombre;
        
-    public Creido() 
+    public Creido(String nombre) 
     {
-
+        this.Nombre = nombre;
     }
 
-    public void OtorgarTrofeo() 
+    public boolean OtorgarTrofeo(Socio socio) 
     {
+        if(socio.historial.getCantidadPesajesMes() > 3)
+        {
+            return true;
+        }
 
+        return false;
     }
 
 }

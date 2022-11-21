@@ -1,11 +1,10 @@
 package entrenamiento;
 
 import mediciones.Medicion;
-import rutina.Rutina;
-import rutina.RutinaReforzada;
 import objetivo.TipoObjetivo;
 import observer.Observados;
-import socio.Socio;
+import rutina.Rutina;
+import rutina.RutinaReforzada;
 
 import java.util.List;
 
@@ -36,16 +35,29 @@ public class Objetivo extends Observados {
 
     public void iniciarMediciones(List<Medicion> mediciones) {
         for (Medicion m : mediciones) {
-            if (m.getClasificacion() == Actual) {
-                if (m.getTipo() == Peso) {
-                    pesoInicial = m.getValor();
-                }
+            if (m.getClasificacion() == Actual && m.getTipo() == Peso) {
+                pesoInicial = m.getValor();
+                break;
             }
         }
     }
+    /*
+    private boolean ProponerMantenerFigura() {
+        System.out.println("Le gustaria pasa al objetivo MANTENER FIGURA: ");
+        Scanner usuario = new Scanner (System.in);
+        System.out.println("S/N");
+    	String opcion = usuario.next();
 
-    public RutinaReforzada ReforzarRutina() 
-    {
+        if(opcion == "S")
+        {
+            return true;
+        }
+
+        return false;
+    }
+     */
+
+    public RutinaReforzada ReforzarRutina() {
         return null;
     }
 
@@ -55,5 +67,9 @@ public class Objetivo extends Observados {
 
     public int getPesoInicial() {
         return pesoInicial;
+    }
+
+    public Rutina getRutina() {
+        return rutina;
     }
 }
