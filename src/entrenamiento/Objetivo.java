@@ -1,56 +1,48 @@
 package entrenamiento;
 
-import rutina.Rutina;
-import rutina.RutinaReforzada;
+import mediciones.Medicion;
 import objetivo.TipoObjetivo;
 import observer.Observados;
-import enums.Clasificacion;
-import enums.TipoMedicion;
-import mediciones.Medicion;
-import socio.Socio;
+import rutina.Rutina;
+import rutina.RutinaReforzada;
 
 import java.util.List;
-import java.util.Scanner;
 
+import static enums.Clasificacion.Actual;
+import static enums.TipoMedicion.Peso;
 
-
-public class Objetivo extends Observados 
-{
+public class Objetivo extends Observados {
 
 	private TipoObjetivo tipoObjetivo;
     private Rutina rutina;
     private int pesoInicial;
 
-    public Objetivo(TipoObjetivo tipoObjetivo, Rutina rutina, Socio socio)
-    {
+    public Objetivo(TipoObjetivo tipoObjetivo) {
     	this.tipoObjetivo = tipoObjetivo;
-    	this.rutina = rutina;
-        this.pesoInicial = ObtenerPeso(socio);
-
+    	this.rutina = tipoObjetivo.crearRutina();
     }
-    
-    public int ObtenerPeso(Socio socio)
-    {
-        List<Medicion>  mediciones = socio.getMediciones();
-        int largo = mediciones.size() - 1;
 
-        for(int i = 0; i > largo; i++ )
-        {
-            Medicion m = mediciones.get(i);
-            if(m.getClasificacion() == Clasificacion.Actual )
-            {
-                if(m.getTipo() == TipoMedicion.Peso)
-                {
-                    return m.getValor();
-                }
+    public Objetivo(TipoObjetivo tipoObjetivo, List<Medicion> mediciones) {
+        this(tipoObjetivo);
+        iniciarMediciones(mediciones);
+    }
+
+    public void cumpleObjetivo(List<Medicion> mediciones) {
+        if (tipoObjetivo.cumpleObjetivo(mediciones)) {
+
+        }
+    }
+
+    public void iniciarMediciones(List<Medicion> mediciones) {
+        for (Medicion m : mediciones) {
+            if (m.getClasificacion() == Actual && m.getTipo() == Peso) {
+                pesoInicial = m.getValor();
+                break;
             }
         }
-
-        return -1;
     }
-
-    private boolean ProponerMantenerFigura()
-    {
+    /*
+    private boolean ProponerMantenerFigura() {
         System.out.println("Le gustaria pasa al objetivo MANTENER FIGURA: ");
         Scanner usuario = new Scanner (System.in);
         System.out.println("S/N");
@@ -63,34 +55,21 @@ public class Objetivo extends Observados
 
         return false;
     }
+     */
 
-    public Rutina CrearRutina() 
-    {
+    public RutinaReforzada ReforzarRutina() {
         return null;
     }
 
-    public RutinaReforzada ReforzarRutina() 
-    {
-        return null;
-    }
-
-    public void seTipoObjetivo(TipoObjetivo tipoObjetivo) 
-    {
+    public void seTipoObjetivo(TipoObjetivo tipoObjetivo) {
         this.tipoObjetivo = tipoObjetivo;
     }
-    
-    public TipoObjetivo getTipoObjetivo()
-    {
-    	return tipoObjetivo;
-    }
-    
-    public int getPesoInicial()
-    {
+
+    public int getPesoInicial() {
         return pesoInicial;
     }
 
-    public Rutina getRutina()
-    {
+    public Rutina getRutina() {
         return rutina;
     }
 }

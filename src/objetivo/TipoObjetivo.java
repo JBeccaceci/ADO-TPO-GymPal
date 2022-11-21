@@ -1,17 +1,33 @@
 package objetivo;
 
-import entrenamiento.Entrenamiento;
-import entrenamiento.Objetivo;
-import enums.Sexo;
+import mediciones.Medicion;
 import rutina.Rutina;
-import socio.Socio;
 
 import java.util.List;
 
-public abstract interface TipoObjetivo 
-{
-    public abstract Rutina crearRutina(List<Entrenamiento> entrenamientos);
-    public boolean VerificarCumplimiento(Objetivo obj, Socio socio);
-    public int CalcularPesoIdeal(int peso , int altura, Sexo sexo);
-   
+public abstract class TipoObjetivo {
+
+    public TipoObjetivo() { }
+
+    public abstract Rutina crearRutina();
+
+    public abstract boolean cumpleObjetivo(List<Medicion> mediciones);
+
+    /*
+    private boolean ProponerMantenerFigura()
+    {
+        System.out.println("Le gustaria pasa al objetivo MANTENER FIGURA: ");
+        Scanner usuario = new Scanner (System.in);
+        System.out.println("S/N");
+    	String opcion = usuario.next();
+
+        if(opcion == "S")
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+     */
 }

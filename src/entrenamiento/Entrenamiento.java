@@ -9,14 +9,12 @@ public class Entrenamiento extends Rutina {
     private List<Ejercicio> ejercicios;
     private int nmroEjercicio = 0;
 
-    public Entrenamiento() 
-    {
+    public Entrenamiento() {
         super();
         this.ejercicios = new ArrayList<>();
     }
 
-    public void agregarEjercicio(Ejercicio ejercicio) 
-    {
+    public void agregarEjercicio(Ejercicio ejercicio) {
         this.ejercicios.add(ejercicio);
     }
 

@@ -5,5 +5,7 @@ package enums;
  */
 public enum TipoMedicion {
     Peso,
-    GrasaCorporal
+    GrasaCorporal,
+    Altura,
+    PesoIdea
 }

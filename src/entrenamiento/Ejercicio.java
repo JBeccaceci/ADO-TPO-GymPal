@@ -15,13 +15,9 @@ public class Ejercicio extends Entrenamiento
     private int pesoAsignado;
     private int repetcionesCompletadas;
     
-    public Ejercicio()
-    {
-    	
-    }
+    public Ejercicio() { }
     
-    public Ejercicio(String nombre, GruposMusculares grupoMuscular, ExigenciaMuscular exigenciaMuscular, int series, int repeticiones, int nivelAerobico, int pesoAsignado) 
-    {
+    public Ejercicio(String nombre, GruposMusculares grupoMuscular, ExigenciaMuscular exigenciaMuscular, int series, int repeticiones, int nivelAerobico, int pesoAsignado) {
         this.nombre = nombre;
         this.grupoMuscular = grupoMuscular;
         this.exigenciaMuscular = exigenciaMuscular;
@@ -31,14 +27,17 @@ public class Ejercicio extends Entrenamiento
         this.pesoAsignado = pesoAsignado;
         this.repetcionesCompletadas = 0;
     }
-    
+
+    public ExigenciaMuscular getExigenciaMuscular() {
+        return exigenciaMuscular;
+    }
+
     public void reiniciarRepeticionesCompletadas()
     {
     	this.repetcionesCompletadas = 0;
     }
     
-    public void modificarEjercicio(int series, int repeticiones, int peso)
-	{
+    public void modificarEjercicio(int series, int repeticiones, int peso) {
 		this.series = series;
 		this.repeticiones = repeticiones;
 		this.pesoAsignado = peso;
