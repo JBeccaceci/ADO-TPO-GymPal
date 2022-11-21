@@ -64,7 +64,12 @@ public class Objetivo extends Observados {
     public void seTipoObjetivo(TipoObjetivo tipoObjetivo) {
         this.tipoObjetivo = tipoObjetivo;
     }
-
+    
+    public TipoObjetivo getTipoObjetivo()
+    {
+    	return tipoObjetivo;
+    }
+    
     public int getPesoInicial() {
         return pesoInicial;
     }

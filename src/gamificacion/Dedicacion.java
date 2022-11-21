@@ -22,7 +22,7 @@ public class Dedicacion implements ITrofeo
         Objetivo obj = socio.getObjetivo();
         TipoObjetivo tipo = obj.getTipoObjetivo();
 
-        if(tipo.VerificarCumplimiento(obj, socio) == true)
+        if(tipo.cumpleObjetivo(socio.getMediciones()) == true)
         {
             return true;
         }

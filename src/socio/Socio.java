@@ -62,7 +62,7 @@ public class Socio extends Observados {
     }
 
     public void NuevaMedicion(Medicion medicion) {
-        historial.SumarCantPesajes();
+        historial.SumarCantPesajesMes();
     }
 
     public int getPeso() {
@@ -85,7 +85,7 @@ public class Socio extends Observados {
         return objetivo;
     }
 
-    public Objetivo getHistorial() {
+    public Historial getHistorial() {
         return historial;
     }
 }
