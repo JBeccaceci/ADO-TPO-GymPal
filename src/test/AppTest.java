@@ -8,7 +8,6 @@ import enums.GruposMusculares;
 import enums.Sexo;
 import objetivo.MantenerFigura;
 import org.junit.jupiter.api.Test;
-import rutina.Rutina;
 import socio.Socio;
 
 import java.util.ArrayList;

@@ -9,14 +9,12 @@ public class Entrenamiento extends Rutina {
     private List<Ejercicio> ejercicios;
     private int nmroEjercicio = 0;
 
-    public Entrenamiento() 
-    {
+    public Entrenamiento() {
         super();
         this.ejercicios = new ArrayList<>();
     }
 
-    public void agregarEjercicio(Ejercicio ejercicio) 
-    {
+    public void agregarEjercicio(Ejercicio ejercicio) {
         this.ejercicios.add(ejercicio);
     }
 
@@ -38,6 +36,7 @@ public class Entrenamiento extends Rutina {
     	System.out.println("Ejercicio Finalizado");
     	//Deberia haber un registro de las repeticiones que se hicieron, para luego realizar el control de si esta cumpliendo o no
     	ejercicios.get(nmroEjercicio).reiniciarRepeticionesCompletadas();
+        //el nmro este sirve para pasar de ej a ej.
     	nmroEjercicio++; 
     }
     

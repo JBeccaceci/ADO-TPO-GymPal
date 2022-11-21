@@ -7,20 +7,13 @@ import java.util.*;
 /**
  * 
  */
-public class Historial {
-
-    /**
-     * Default constructor
-     */
-    public Historial() {
-    }
-
+public class Historial 
+{
     private List<Entrenamiento> ejerciciosCompletados;
     private int entrenamientosCumplidos;
 
+    public Historial() 
+    {
 
-    public void Operation1() {
-        // TODO implement here
     }
-
-}
+} 

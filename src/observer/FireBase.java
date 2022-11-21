@@ -3,20 +3,16 @@ package observer;
 /**
  * 
  */
-public class FireBase {
+public class FireBase 
+{
+    public FireBase() 
+    {
 
-    /**
-     * Default constructor
-     */
-    FireBase() {
     }
 
-    /**
-     * @param notificaciones 
-     * @return
-     */
-    public void EnvarNotificacion(String notificaciones) {
-        // TODO implement here
+    public void EnvarNotificacion(String notificaciones) 
+    {
+        
     }
 
 }

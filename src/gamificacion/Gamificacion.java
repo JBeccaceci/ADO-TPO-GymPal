@@ -1,43 +1,46 @@
 package gamificacion;
 
 import java.util.*;
+import socio.Socio;
 
-/**
- * 
- */
-public class Gamificacion {
-
-    /**
-     * Default constructor
-     */
-    public Gamificacion() {
-    }
-
-    /**
-     * 
-     */
+public class Gamificacion 
+{
     public List<Trofeo> Trofeo;
 
-    /**
-     * 
-     */
-    public void OtorgarTrofeo() {
-        // TODO implement here
+    public Gamificacion(List<Trofeo> trofeos) 
+    {
+        this.Trofeo = trofeos;
+    }
+    
+    public void OtorgarTrofeo() 
+    {
+        //gamificacion no se encargaria de otorgar trofeos, sino la clase Trofeo es la que otorga
     }
 
-    /**
-     * @param objetivo 
-     * @return
-     */
-    public void objetivoCumplido(String objetivo) {
-        // TODO implement here
+    public void objetivoCumplido(Socio socio) 
+    {
+        Objetivo obj = socio.getObjetivo;
+        TipoObjetivo tipo = obj.getTipo;
+
+        if(tipo.VerificarCumplimiento() == true)
+        {
+            System.out.println("FELICITACIONES, cumpliste con el objetivo");
+        }
     }
 
-    /**
-     * @return
-     */
-    public void medicionCumplida() {
-        // TODO implement here
+    public void medicionCumplida() 
+    {
+        //que deberia hacer esto?, no lo cumple el objetivo cumplido ya lo de las mediciones?
+    }
+
+    public void agregarTrofeo(Trofeo trofeo)
+    {
+        this.ejercicios.add(trofeo);
+    }
+
+    public void eliminarTrofeo(Trofeo trofeo)
+    {
+        this.ejercicios.remove(trofeo);
     }
 
 }

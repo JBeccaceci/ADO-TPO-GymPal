@@ -70,4 +70,9 @@ public class Socio extends Observados {
     public List<Medicion> getMediciones() {
        return mediciones;
     }
+
+    public Objetivo getObjetivo()
+    {
+        return objetivo;
+    }
 }
