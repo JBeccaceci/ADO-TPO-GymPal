@@ -2,27 +2,18 @@ package gamificacion;
 
 import java.util.*;
 
-/**
- * 
- */
-public class Creido {
+public class Creido 
+{
+    public String Nombre;
+       
+    public Creido() 
+    {
 
-    /**
-     * Default constructor
-     */
-    public Creido() {
     }
 
-    /**
-     * 
-     */
-    public String Nombre;
+    public void OtorgarTrofeo() 
+    {
 
-    /**
-     * 
-     */
-    public void OtorgarTrofeo() {
-        // TODO implement here
     }
 
 }

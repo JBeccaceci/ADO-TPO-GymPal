@@ -2,27 +2,19 @@ package gamificacion;
 
 import java.util.*;
 
-/**
- * 
- */
-public class Constancia {
 
-    /**
-     * Default constructor
-     */
-    public Constancia() {
-    }
-
-    /**
-     * 
-     */
+public class Constancia 
+{
     public String Nombre;
 
-    /**
-     * 
-     */
-    public void OtorgarTrofeo() {
-        // TODO implement here
+    public Constancia() 
+    {
+
+    }
+
+    public void OtorgarTrofeo() 
+    {
+        
     }
 
 }

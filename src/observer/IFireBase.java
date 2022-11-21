@@ -5,12 +5,7 @@ import java.util.*;
 /**
  * 
  */
-public interface IFireBase {
-
-    /**
-     * @param notificaciones 
-     * @return
-     */
+public interface IFireBase 
+{
     public void EnvarNotificacion( String notificaciones);
-
 }

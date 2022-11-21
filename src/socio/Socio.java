@@ -57,4 +57,9 @@ public class Socio extends Observados
     {
        return medicion;
     }
+
+    public Objetivo getObjetivo()
+    {
+        return objetivo;
+    }
 }

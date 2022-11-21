@@ -38,6 +38,7 @@ public class Entrenamiento extends Rutina {
     	System.out.println("Ejercicio Finalizado");
     	//Deberia haber un registro de las repeticiones que se hicieron, para luego realizar el control de si esta cumpliendo o no
     	ejercicios.get(nmroEjercicio).reiniciarRepeticionesCompletadas();
+        //el nmro este sirve para pasar de ej a ej.
     	nmroEjercicio++; 
     }
     

@@ -15,7 +15,8 @@ public abstract class TipoObjetivo {
 
     public abstract Rutina crearRutina(List<Entrenamiento> entrenamientos);
 
-    public boolean VerificarCumplimiento() {
+    public boolean VerificarCumplimiento() 
+    {
         return false;
     }
 
