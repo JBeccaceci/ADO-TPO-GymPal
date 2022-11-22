@@ -9,7 +9,7 @@ import socio.Socio;
 import java.util.List;
 
 
-public class Constancia implements ITrofeo
+public class Constancia extends Trofeo
 {
     public String Nombre;
 

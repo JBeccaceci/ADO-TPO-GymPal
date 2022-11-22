@@ -3,34 +3,45 @@ package objetivo;
 import builder.EjerciciosBuilder;
 import entrenamiento.Ejercicio;
 import entrenamiento.Entrenamiento;
-import entrenamiento.Objetivo;
-import enums.Sexo;
 import mediciones.Medicion;
 import rutina.Rutina;
 import enums.ExigenciaMuscular;
-import objetivo.TipoObjetivo;
+
+import static enums.TipoMedicion.Peso;
+import static enums.Clasificacion.Inicial;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MantenerFigura extends TipoObjetivo {
+public class MantenerFigura extends TipoObjetivo 
+{
+	//ESTE valor lo setea el coordinador o el usario
+	private int rangoPeso = 100;
 
     public MantenerFigura() {
         
     }
 
-    @Override
-    public Rutina crearRutina() {
+    public Rutina crearRutina() 
+    {
         return this.generarRutina();
     }
 
-    @Override
-    public boolean cumpleObjetivo(List<Medicion> mediciones) {
-        return false;
+    public boolean cumpleObjetivo(List<Medicion> mediciones) 
+    {
+    	 int pesoInicial = 0;
+         for (Medicion m : mediciones) {
+             if (m.getClasificacion() == Inicial && m.getTipo() == Peso) {
+            	 pesoInicial = m.getValor();
+                 break;
+             }
+         }
+         return pesoInicial >= rangoPeso - 5 & pesoInicial <= rangoPeso + 5;
     }
 
-    private Rutina generarRutina() {
+    private Rutina generarRutina() 
+    {
         List<Ejercicio> ejercicioList = EjerciciosBuilder.obtenerEjercicios().getEjercicioList();
 
         //  Generamos un entrenamiento en base al criterio del objetivo
@@ -42,27 +53,9 @@ public class MantenerFigura extends TipoObjetivo {
         List<Entrenamiento> entrenamientoList = Collections.singletonList(entrenamiento);
         return new Rutina(entrenamientoList, ExigenciaMuscular.Medio, 80, 3);
     }
-
-    /*
-    public boolean VerificarCumplimiento(Objetivo obj)
+    
+    public void setRangoPeso(int valor)
     {
-        int pesoInicial = obj.getPesoInicial();
-        int pesoIdeal = CalcularPesoIdeal(pesoInicial , socio.getAltura(), socio.getSexo());
-
-        if(pesoInicial != pesoIdeal)
-        {
-            return false;
-        }
-
-        return true;
+    	this.rangoPeso = valor;
     }
-
-    private int CalcularPesoIdeal(Objetivo obj , int altura, Sexo sexo)
-    {
-        int pesoInicial = obj.getPesoInicial();
-
-        return 0;
-    }
-     */
-
 }

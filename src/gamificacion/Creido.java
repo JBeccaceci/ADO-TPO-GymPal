@@ -3,7 +3,7 @@ package gamificacion;
 import socio.Historial;
 import socio.Socio;
 
-public class Creido implements ITrofeo
+public class Creido extends Trofeo
 {
     public String Nombre;
        

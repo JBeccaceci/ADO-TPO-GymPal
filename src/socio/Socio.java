@@ -4,6 +4,7 @@ import entrenamiento.Objetivo;
 import enums.Sexo;
 import enums.TipoMedicion;
 import mediciones.Medicion;
+import objetivo.TipoObjetivo;
 import observer.Observados;
 
 import java.util.*;
@@ -50,8 +51,10 @@ public class Socio extends Observados {
     public void actualizarMedicion(Medicion medicion) {
         Optional<Medicion> existeMedicion = mediciones.stream()
                 .filter(m -> m.getTipo() == medicion.getTipo()).findAny();
-        if (existeMedicion.isPresent()) {
-            objetivo.cumpleObjetivo(this.mediciones);
+        if (existeMedicion.isPresent()) 
+        {
+        	TipoObjetivo tipo = objetivo.getTipoObjetivo(); 
+        	tipo.cumpleObjetivo(this.mediciones);
         }
     }
 

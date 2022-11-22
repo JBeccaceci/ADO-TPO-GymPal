@@ -7,11 +7,13 @@ import enums.Clasificacion;
 import java.util.*;
 
 
-public class Medicion {
+public class Medicion 
+{
     private TipoMedicion tipo;
     private int valor;
     private Date fecha;
     private Clasificacion clasificacion;
+    private IMedicionesExternas medicionesExternas;
 
     public Medicion() {
 
@@ -47,7 +49,18 @@ public class Medicion {
     {
         return valor;
     }
-
+    
+    public IMedicionesExternas getME()
+    {
+    	return this.medicionesExternas;
+    }
+    
+    public void setME(IMedicionesExternas ME)
+    {
+    	this.medicionesExternas = ME;
+    }
+    
+    
     public TipoMedicion getTipo()
     {
         return tipo;

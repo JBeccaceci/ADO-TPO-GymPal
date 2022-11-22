@@ -6,52 +6,66 @@ import entrenamiento.Entrenamiento;
 import mediciones.Medicion;
 import rutina.Rutina;
 import enums.ExigenciaMuscular;
-import enums.Sexo;
-import objetivo.TipoObjetivo;
-import entrenamiento.Objetivo;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 import static enums.Clasificacion.Actual;
+import static enums.TipoMedicion.GrasaCorporal;
+import static enums.TipoMedicion.MasaMuscular;
 import static enums.TipoMedicion.Peso;
+import static enums.TipoMedicion.Altura;
 
-/**
- * 
- */
-public class BajarPeso extends TipoObjetivo {
-    private static final int PESO_IDEAL = 60;
+
+public class BajarPeso extends TipoObjetivo 
+{
 
     public BajarPeso() { }
 
-    @Override
-    public Rutina crearRutina() {
-        return this.generarRutina();
+    public Rutina crearRutina() 
+    {
+    	   List<Ejercicio> ejercicioList = EjerciciosBuilder.obtenerEjercicios().getEjercicioList();
+
+           //  Generamos un entrenamiento en base al criterio del objetivo
+           Entrenamiento entrenamiento = new Entrenamiento();
+           ejercicioList.stream()
+                   .filter(e -> e.getNivelAerobico() >= 3).collect(Collectors.toList())
+                   .forEach(entrenamiento::agregarEjercicio);
+
+           List<Entrenamiento> entrenamientoList = Collections.singletonList(entrenamiento);
+           return new Rutina(entrenamientoList, ExigenciaMuscular.Medio, 80, 3);
     }
 
-    @Override
-    public boolean cumpleObjetivo(List<Medicion> mediciones) {
+    public boolean cumpleObjetivo(List<Medicion> mediciones) 
+    {
         int pesoActual = 0;
-        for (Medicion m : mediciones) {
-            if (m.getClasificacion() == Actual && m.getTipo() == Peso) {
-                pesoActual = m.getValor();
-                break;
+        for (Medicion m : mediciones) 
+        {
+            if (m.getClasificacion() == Actual && m.getTipo() == Peso) 
+            {
+            	pesoActual = m.getValor();
+            	//EL CONTROL O CALCULO DE IDEAL se encarga las mediciones externas
+                return pesoActual == m.getME().PesoIdeal();
             }
         }
-        return pesoActual <= PESO_IDEAL;
+        return false;
     }
+    
+    //Una vez que se cumplio el objetivo se deberia sugerir al Socio si quiere pasar a Mantener Figura.
+	public boolean ProponerMantenerFigura() 
+	{
+	        System.out.println("Le gustaria pasa al objetivo MANTENER FIGURA: ");
+	        Scanner usuario = new Scanner (System.in);
+	        System.out.println("S/N");
+	    	String opcion = usuario.next();
 
-    private Rutina generarRutina() {
-        List<Ejercicio> ejercicioList = EjerciciosBuilder.obtenerEjercicios().getEjercicioList();
+	        if(opcion == "S")
+	        {
+	            return true;
+	        }
 
-        //  Generamos un entrenamiento en base al criterio del objetivo
-        Entrenamiento entrenamiento = new Entrenamiento();
-        ejercicioList.stream()
-                .filter(e -> e.getNivelAerobico() >= 3).collect(Collectors.toList())
-                .forEach(entrenamiento::agregarEjercicio);
+	        return false;
+	}
 
-        List<Entrenamiento> entrenamientoList = Collections.singletonList(entrenamiento);
-        return new Rutina(entrenamientoList, ExigenciaMuscular.Medio, 80, 3);
-    }
 
 }

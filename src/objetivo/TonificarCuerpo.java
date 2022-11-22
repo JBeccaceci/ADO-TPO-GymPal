@@ -3,29 +3,58 @@ package objetivo;
 import builder.EjerciciosBuilder;
 import entrenamiento.Ejercicio;
 import entrenamiento.Entrenamiento;
-import entrenamiento.Objetivo;
-import enums.Sexo;
 import mediciones.Medicion;
 import rutina.Rutina;
 import enums.ExigenciaMuscular;
-import objetivo.TipoObjetivo;
+
+import static enums.Clasificacion.Actual;
+import static enums.TipoMedicion.Altura;
+import static enums.TipoMedicion.GrasaCorporal;
+import static enums.TipoMedicion.MasaMuscular;
+import static enums.TipoMedicion.Peso;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class TonificarCuerpo extends TipoObjetivo {
+public class TonificarCuerpo extends TipoObjetivo 
+{
+    public TonificarCuerpo() 
+    { 
+    	
+    }
 
-    public TonificarCuerpo() { }
-
-    @Override
-    public Rutina crearRutina() {
+    public Rutina crearRutina() 
+    {
         return this.generarRutina();
     }
 
-    @Override
-    public boolean cumpleObjetivo(List<Medicion> mediciones) {
-        return false;
+    public boolean cumpleObjetivo(List<Medicion> mediciones) 
+    {
+    	 boolean controlGrasaCorporalIdeal = false, controlMasaMuscularIdeal = false;
+    	 int grasaCorporalActual = 0, masaMuscularActual = 0;
+         for (Medicion m : mediciones) 
+         {
+             if (m.getClasificacion() == Actual && m.getTipo() == GrasaCorporal) 
+             {
+            	 grasaCorporalActual = m.getValor();
+            	 controlGrasaCorporalIdeal = m.getME().GrasaCorporalIdeal() == grasaCorporalActual;             
+            }
+             
+             if (m.getClasificacion() == Actual && m.getTipo() == MasaMuscular) 
+             {
+            	 masaMuscularActual = m.getValor(); 
+            	 controlMasaMuscularIdeal = m.getME().MasaMuscularlIdeal() == masaMuscularActual;
+             }
+             
+             if(grasaCorporalActual != 0 & masaMuscularActual != 0)
+             {
+            	 return controlGrasaCorporalIdeal == true & controlMasaMuscularIdeal ==true;
+             }
+         }
+         
+         return false;
     }
 
     private Rutina generarRutina() {
@@ -42,26 +71,18 @@ public class TonificarCuerpo extends TipoObjetivo {
         return new Rutina(entrenamientoList, ExigenciaMuscular.Medio, 80, 3);
     }
 
-    /*
-    public boolean VerificarCumplimiento(Obj obj) 
-    {
-        int pesoInicial = obj.getPesoInicial();
-        int pesoIdeal = CalcularPesoIdeal(pesoInicial , socio.getAltura(), socio.getSexo());
+    public boolean ProponerMantenerFigura() 
+	{
+	        System.out.println("Le gustaria pasa al objetivo MANTENER FIGURA: ");
+	        Scanner usuario = new Scanner (System.in);
+	        System.out.println("S/N");
+	    	String opcion = usuario.next();
 
-        if(pesoInicial != pesoIdeal)
-        {
-            return false;
-        }
+	        if(opcion == "S")
+	        {
+	            return true;
+	        }
 
-        return true;
-    }
-
-    private int CalcularPesoIdeal(Objetivo obj , int altura, Sexo sexo)
-    {
-        int pesoInicial = obj.getPesoInicial();
-
-        return 0;
-    }
-     */
-
+	        return false;
+	}
 }

@@ -6,7 +6,7 @@ import entrenamiento.Objetivo;
 import objetivo.TipoObjetivo;
 import socio.Socio;
 
-public class Dedicacion implements ITrofeo
+public class Dedicacion extends Trofeo
 {
     public String Nombre;
 

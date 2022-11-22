@@ -24,14 +24,14 @@ public class Objetivo extends Observados {
 
     public Objetivo(TipoObjetivo tipoObjetivo, List<Medicion> mediciones) {
         this(tipoObjetivo);
-        iniciarMediciones(mediciones);
+        //iniciarMediciones(mediciones);
     }
-
-    public void cumpleObjetivo(List<Medicion> mediciones) {
-        if (tipoObjetivo.cumpleObjetivo(mediciones)) {
-
-        }
-    }
+    
+    
+    
+    //ESTO LO VERIFICA CADA TIPO DE OBJETIVO
+    /*
+    public void cumpleObjetivo(List<Medicion> mediciones) { }
 
     public void iniciarMediciones(List<Medicion> mediciones) {
         for (Medicion m : mediciones) {
@@ -41,22 +41,10 @@ public class Objetivo extends Observados {
             }
         }
     }
-    /*
-    private boolean ProponerMantenerFigura() {
-        System.out.println("Le gustaria pasa al objetivo MANTENER FIGURA: ");
-        Scanner usuario = new Scanner (System.in);
-        System.out.println("S/N");
-    	String opcion = usuario.next();
+    */
 
-        if(opcion == "S")
-        {
-            return true;
-        }
-
-        return false;
-    }
-     */
-
+    
+    
     public RutinaReforzada ReforzarRutina() {
         return null;
     }
