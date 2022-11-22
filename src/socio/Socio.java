@@ -3,6 +3,7 @@ package socio;
 import entrenamiento.Objetivo;
 import enums.Sexo;
 import enums.TipoMedicion;
+import gamificacion.Gamificacion;
 import mediciones.Medicion;
 import objetivo.TipoObjetivo;
 import observer.Observados;
@@ -19,6 +20,7 @@ public class Socio extends Observados {
     private List<Medicion> mediciones;
     private Historial historial;
     private Observados observados;
+    private Gamificacion gami;
 
     public Socio(int edad, Sexo sexo, int altura, Objetivo objetivo) {
         this.edad = edad;
@@ -27,6 +29,8 @@ public class Socio extends Observados {
         this.mediciones = new ArrayList<>();
         this.objetivo = objetivo;
         this.observados = new Observados();
+        this.historial = new Historial();
+        this.gami = new Gamificacion();
 
         init();
     }
@@ -34,15 +38,7 @@ public class Socio extends Observados {
     private void init() {
         mediciones.add(new Medicion(TipoMedicion.Altura, this.altura));
     }
-
-    public Socio(int edad, Sexo sexo, int altura, Objetivo objetivo, Historial historial) {
-        this.edad = edad;
-        this.sexo = sexo;
-        this.altura = altura;
-        this.objetivo = objetivo;
-        this.historial = historial;
-    }
-
+    
     /**
      * Actualizamos una medicion, si existe ya esa medicion en la lista
      * debemos de verifica si se cumple o no el objetivo para pasar al siguiente.
