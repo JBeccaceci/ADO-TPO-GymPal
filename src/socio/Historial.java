@@ -27,7 +27,7 @@ public class Historial
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
 
-            int mesUltimoPesaje = calendar.get(Calendar.MONTH);
+            mesUltimoPesaje = calendar.get(Calendar.MONTH);
         }
         else
         {
