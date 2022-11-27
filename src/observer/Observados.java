@@ -1,5 +1,7 @@
 package observer;
 
+import gamificacion.Trofeo;
+
 import java.util.*;
 
 
@@ -19,9 +21,16 @@ public class Observados {
         this.observadores.remove(obs);
     }
 
-    public void notificarObservadores(int tipo, String objetivo) {
-        for(IObservador observador: observadores) {
-        	observador.Notificar();
+    public void notificarObservadores(Trofeo trofeo, String message) {
+        for (IObservador observador: observadores) {
+        	observador.notificar(message);
+            observador.objetivoCumplido(trofeo);
+        }
+    }
+
+    public void notificarGamification(Trofeo trofeo) {
+        for (IObservador observador: observadores) {
+            observador.objetivoCumplido(trofeo);
         }
     }
 }

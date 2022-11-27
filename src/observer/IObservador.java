@@ -1,13 +1,8 @@
 package observer;
 
-import java.util.*;
+import gamificacion.Trofeo;
 
-
-public interface IObservador 
-{
-    public void objetivoCumplido(String objetivo);
-    public void medicionCumplida();
-    public void contanciaCumplida();
-	public void Notificar();
-
+public interface IObservador {
+    void objetivoCumplido(Trofeo trofeo);
+	void notificar(String message);
 }

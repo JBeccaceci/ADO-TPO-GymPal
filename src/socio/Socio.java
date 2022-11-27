@@ -3,12 +3,16 @@ package socio;
 import entrenamiento.Objetivo;
 import enums.Sexo;
 import enums.TipoMedicion;
+import gamificacion.Creido;
+import gamificacion.Dedicacion;
 import gamificacion.Gamificacion;
 import mediciones.Medicion;
 import objetivo.TipoObjetivo;
+import observer.Notificaciones;
 import observer.Observados;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class Socio extends Observados {
@@ -21,6 +25,7 @@ public class Socio extends Observados {
     private Historial historial;
     private Observados observados;
     private Gamificacion gami;
+    private Notificaciones notificaciones;
 
     public Socio(int edad, Sexo sexo, int altura, Objetivo objetivo) {
         this.edad = edad;
@@ -31,6 +36,16 @@ public class Socio extends Observados {
         this.observados = new Observados();
         this.historial = new Historial();
         this.gami = new Gamificacion();
+        this.notificaciones = new Notificaciones();
+
+        this.agregarObservador(gami);
+        this.agregarObservador(notificaciones);
+
+        this.objetivo.agregarObservador(gami);
+        this.objetivo.agregarObservador(notificaciones);
+
+        this.objetivo.getRutina().agregarObservador(gami);
+        this.objetivo.getRutina().agregarObservador(notificaciones);
 
         init();
     }
@@ -47,10 +62,11 @@ public class Socio extends Observados {
     public void actualizarMedicion(Medicion medicion) {
         Optional<Medicion> existeMedicion = mediciones.stream()
                 .filter(m -> m.getTipo() == medicion.getTipo()).findAny();
-        if (existeMedicion.isPresent()) 
-        {
+        if (existeMedicion.isPresent()) {
         	TipoObjetivo tipo = objetivo.getTipoObjetivo(); 
-        	tipo.cumpleObjetivo(this.mediciones);
+        	if (tipo.cumpleObjetivo(this.mediciones)) {
+                this.notificarObservadores(new Dedicacion("Dedicacion"), "Objetivo Dedicacion cumplido");
+            }
         }
     }
 
@@ -60,10 +76,15 @@ public class Socio extends Observados {
 
     public void nuevaMedicion(Medicion medicion) {
         mediciones.add(medicion);
-    }
 
-    public void NuevaMedicion(Medicion medicion) {
-        historial.SumarCantPesajesMes();
+        //  Agregar filtro de fecha, validar que las 3 mediciones
+        //  esten el el rango de 1 mes
+        List<Medicion> pesoMediciones = mediciones
+                .stream()
+                .filter(m -> m.getTipo() == TipoMedicion.Peso).collect(Collectors.toList());
+        if (pesoMediciones.size() > 3) {
+            this.notificarObservadores(new Creido("Creido"), "Objetivo creido cumplido");
+        }
     }
 
     public int getPeso() {

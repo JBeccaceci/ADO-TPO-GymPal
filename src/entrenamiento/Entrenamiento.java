@@ -22,15 +22,13 @@ public class Entrenamiento extends Rutina {
         this.ejercicios.removeIf(e -> e.getNombre().equals(ejericio.getNombre()));
     }
 
-    public void comenzarEjercicio(Ejercicio ejercicio) 
-    {
+    public void comenzarEjercicio(Ejercicio ejercicio) {
     	//Serian una funcion de la app
     	//comenzar();
     	mostrarEjercicio();
     }
 
-    public void finalizarEjercicio(Ejercicio ejercicio) 
-    {
+    public void finalizarEjercicio(Ejercicio ejercicio) {
     	//Serian una funcion de la app
     	//finalizado();
     	System.out.println("Ejercicio Finalizado");

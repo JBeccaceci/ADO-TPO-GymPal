@@ -3,16 +3,13 @@ package observer;
 /**
  * 
  */
-public class FireBase 
+public class FireBase implements IFireBase
 {
-    public FireBase() 
-    {
-
+    public FireBase() {
     }
 
-    public void EnvarNotificacion(String notificaciones) 
-    {
-        
+    @Override
+    public void notificar(String mensaje) {
+        System.out.println("Notificacion " + mensaje);
     }
-
 }

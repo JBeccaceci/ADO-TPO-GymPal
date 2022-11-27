@@ -17,13 +17,11 @@ import static enums.TipoMedicion.Peso;
 import static enums.TipoMedicion.Altura;
 
 
-public class BajarPeso extends TipoObjetivo 
-{
+public class BajarPeso extends TipoObjetivo {
 
     public BajarPeso() { }
 
-    public Rutina crearRutina() 
-    {
+    public Rutina crearRutina() {
     	   List<Ejercicio> ejercicioList = EjerciciosBuilder.obtenerEjercicios().getEjercicioList();
 
            //  Generamos un entrenamiento en base al criterio del objetivo
@@ -36,8 +34,7 @@ public class BajarPeso extends TipoObjetivo
            return new Rutina(entrenamientoList, ExigenciaMuscular.Medio, 80, 3);
     }
 
-    public boolean cumpleObjetivo(List<Medicion> mediciones) 
-    {
+    public boolean cumpleObjetivo(List<Medicion> mediciones) {
         int pesoActual = 0;
         for (Medicion m : mediciones) 
         {

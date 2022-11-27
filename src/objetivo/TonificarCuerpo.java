@@ -20,37 +20,31 @@ import java.util.stream.Collectors;
 
 public class TonificarCuerpo extends TipoObjetivo 
 {
-    public TonificarCuerpo() 
-    { 
+    public TonificarCuerpo() {
     	
     }
 
-    public Rutina crearRutina() 
-    {
+    public Rutina crearRutina() {
         return this.generarRutina();
     }
 
-    public boolean cumpleObjetivo(List<Medicion> mediciones) 
-    {
+    public boolean cumpleObjetivo(List<Medicion> mediciones) {
     	 boolean controlGrasaCorporalIdeal = false, controlMasaMuscularIdeal = false;
     	 int grasaCorporalActual = 0, masaMuscularActual = 0;
          for (Medicion m : mediciones) 
          {
-             if (m.getClasificacion() == Actual && m.getTipo() == GrasaCorporal) 
-             {
+             if (m.getClasificacion() == Actual && m.getTipo() == GrasaCorporal) {
             	 grasaCorporalActual = m.getValor();
             	 controlGrasaCorporalIdeal = m.getME().GrasaCorporalIdeal() == grasaCorporalActual;             
-            }
+             }
              
-             if (m.getClasificacion() == Actual && m.getTipo() == MasaMuscular) 
-             {
+             if (m.getClasificacion() == Actual && m.getTipo() == MasaMuscular) {
             	 masaMuscularActual = m.getValor(); 
             	 controlMasaMuscularIdeal = m.getME().MasaMuscularlIdeal() == masaMuscularActual;
              }
              
-             if(grasaCorporalActual != 0 & masaMuscularActual != 0)
-             {
-            	 return controlGrasaCorporalIdeal == true & controlMasaMuscularIdeal ==true;
+             if(grasaCorporalActual != 0 & masaMuscularActual != 0) {
+            	 return controlGrasaCorporalIdeal && controlMasaMuscularIdeal;
              }
          }
          

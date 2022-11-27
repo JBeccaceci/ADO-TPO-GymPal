@@ -23,13 +23,11 @@ public class MantenerFigura extends TipoObjetivo
         
     }
 
-    public Rutina crearRutina() 
-    {
+    public Rutina crearRutina() {
         return this.generarRutina();
     }
 
-    public boolean cumpleObjetivo(List<Medicion> mediciones) 
-    {
+    public boolean cumpleObjetivo(List<Medicion> mediciones) {
     	 int pesoInicial = 0;
          for (Medicion m : mediciones) {
              if (m.getClasificacion() == Inicial && m.getTipo() == Peso) {
@@ -40,8 +38,7 @@ public class MantenerFigura extends TipoObjetivo
          return pesoInicial >= rangoPeso - 5 & pesoInicial <= rangoPeso + 5;
     }
 
-    private Rutina generarRutina() 
-    {
+    private Rutina generarRutina() {
         List<Ejercicio> ejercicioList = EjerciciosBuilder.obtenerEjercicios().getEjercicioList();
 
         //  Generamos un entrenamiento en base al criterio del objetivo

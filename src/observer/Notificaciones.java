@@ -1,30 +1,24 @@
 package observer;
 
+import gamificacion.Trofeo;
+
 import java.util.*;
 
 
 public class Notificaciones implements IObservador {
+    private IFireBase notificador;
+
     public Notificaciones() {
-
-    }
-    
-    public void objetivoCumplido(String objetivo) {
-      
-    }
-
-    public void medicionCumplida() 
-    {
-     
+        this.notificador = new FireBase();
     }
 
     @Override
-    public void contanciaCumplida() {
-
+    public void objetivoCumplido(Trofeo trofeo) {
+        //  Nothing to do
     }
 
     @Override
-    public void Notificar() {
-
+    public void notificar(String message) {
+        this.notificador.notificar(message);
     }
-
 }
