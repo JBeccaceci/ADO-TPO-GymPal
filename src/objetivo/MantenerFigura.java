@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MantenerFigura extends TipoObjetivo 
+public class MantenerFigura implements TipoObjetivo 
 {
 	//ESTE valor lo setea el coordinador o el usario
 	private int rangoPeso = 100;

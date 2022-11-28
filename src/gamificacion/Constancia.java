@@ -9,15 +9,17 @@ import socio.Socio;
 import java.util.List;
 
 
-public class Constancia extends Trofeo
+public class Constancia implements Trofeo
 {
     public String Nombre;
+    public Date fecha;
 
-    public Constancia(String nombre) {
+    public Constancia(String nombre, Date fecha){
         this.Nombre = nombre;
+        this.fecha = fecha;
     }
 
-    public boolean OtorgarTrofeo(Socio socio) {
+    public boolean cumpleTrofeo(Socio socio) {
         Historial historial = socio.getHistorial();
         Objetivo obj = socio.getObjetivo();
         Rutina rutina = obj.getRutina();

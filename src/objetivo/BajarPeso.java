@@ -17,7 +17,7 @@ import static enums.TipoMedicion.Peso;
 import static enums.TipoMedicion.Altura;
 
 
-public class BajarPeso extends TipoObjetivo {
+public class BajarPeso implements TipoObjetivo {
 
     public BajarPeso() { }
 

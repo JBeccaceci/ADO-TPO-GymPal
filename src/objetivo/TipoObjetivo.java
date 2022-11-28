@@ -5,9 +5,7 @@ import rutina.Rutina;
 
 import java.util.List;
 
-public abstract class TipoObjetivo {
-
-    public TipoObjetivo() { }
+public interface TipoObjetivo {
 
     public abstract Rutina crearRutina();
     public abstract boolean cumpleObjetivo(List<Medicion> mediciones);

@@ -7,18 +7,34 @@ import enums.ExigenciaMuscular;
 import java.util.*;
 
 
-public class RutinaReforzada extends Rutina {
+public class RutinaReforzada extends Rutina 
+{
 	private Rutina rutinaReforzada;
+	private static int incrementador = 2; 
 
     public RutinaReforzada() {
     	this.rutinaReforzada = this;
 		reforzar();
     }
 
-	public void reforzar() {
-		// En este metodo realizar dos for para modificar los valores
-		// de los ejercicios
-		// Utilizar la variable rutinaReforzada!!!!!!!
+	public void reforzar(List<Entrenamiento> entrenamientos) 
+	{
+		int largoE = entrenamientos.size() - 1;
+		for(int i = 0; i < largoE; i++)
+		{
+			Entrenamiento e = entrenamientos.get(i);
+			List<Ejercicio> ejercicios = e.getEjercicios();
+
+			int largoJ = ejercicios.size() - 1;
+			for(int k = 0; k < largoJ; k++)
+			{
+				Ejercicio j = ejercicios.get(k);
+				j.setPesoAsignado(j.getPesoAsignado() * incrementador);
+				j.setRepeticiones(j.getRepeticiones() * incrementador);
+				j.setSeries(j.setSeries() * incrementador);
+			}
+
+		}
 	}
 
     public void ComenzarEntrenamiento() {

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class TonificarCuerpo extends TipoObjetivo 
+public class TonificarCuerpo implements TipoObjetivo 
 {
     public TonificarCuerpo() {
     	
