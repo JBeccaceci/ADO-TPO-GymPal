@@ -4,8 +4,7 @@ import enums.ExigenciaMuscular;
 import enums.GruposMusculares;
 
 
-public class Ejercicio extends Entrenamiento 
-{
+public class Ejercicio extends Entrenamiento {
 	private String nombre;
     private GruposMusculares grupoMuscular;
     private ExigenciaMuscular exigenciaMuscular;

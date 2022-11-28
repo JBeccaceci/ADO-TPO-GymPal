@@ -1,10 +1,9 @@
 package entrenamiento;
 
-import rutina.Rutina;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.*;
-
-public class Entrenamiento extends Rutina {
+public class Entrenamiento {
 
     private List<Ejercicio> ejercicios;
     private int nmroEjercicio = 0;

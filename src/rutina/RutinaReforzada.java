@@ -7,46 +7,39 @@ import enums.ExigenciaMuscular;
 import java.util.*;
 
 
-public class RutinaReforzada extends Rutina 
-{
-	private List<Entrenamiento> Entrenamientos;
-    private int nmroEntrenamiento= 0;
-    private Date Inicio;
-    private enums.ExigenciaMuscular ExigenciaMuscular;
-    private int TiempoEntrenamiento;
-    private int NivelAerobico;
+public class RutinaReforzada extends Rutina {
+	private Rutina rutinaReforzada;
 
-    public RutinaReforzada(List<Entrenamiento> entrenamientos,  Date inicio, enums.ExigenciaMuscular exigenciaMuscular, int tiempoEntrenamiento, int nivelAerobico) 
-    {
-    	this.Entrenamientos = entrenamientos;
-    	this.Inicio = inicio;
-    	this.ExigenciaMuscular = exigenciaMuscular;
-    	this.TiempoEntrenamiento = tiempoEntrenamiento;
-    	this.NivelAerobico = nivelAerobico;
+    public RutinaReforzada() {
+    	this.rutinaReforzada = this;
+		reforzar();
     }
-    
-    public void ComenzarEntrenamiento()
-    {
+
+	public void reforzar() {
+		// En este metodo realizar dos for para modificar los valores
+		// de los ejercicios
+		// Utilizar la variable rutinaReforzada!!!!!!!
+	}
+
+    public void ComenzarEntrenamiento() {
     	//Serian una funcion de la app
     	//comenzar();
     	mostrarEntrenamiento();
     }
     
-    public void FinalizarEntrenamiento() 
-    {
+    public void FinalizarEntrenamiento() {
     	//Serian una funcion de la app
     	//finalizado();
     	System.out.println("Entrenamiento Finalizado");
-    	nmroEntrenamiento++;
+    	//nmroEntrenamiento++;
     }
     
-    public void Refuerzo(Ejercicio ejercicio) 
-    {
+    public void Refuerzo(Ejercicio ejercicio) {
     	Scanner usuario;
     	usuario = new Scanner (System.in);
     	String opcion;
     
-		System.out.println("¿Desea Modificar el siguiente Ejercicio: " + ejercicio.getNombre() + "?"); 
+		System.out.println("ï¿½Desea Modificar el siguiente Ejercicio: " + ejercicio.getNombre() + "?"); 
 		System.out.println("S/N");
 		opcion = usuario.next();
 		
@@ -80,8 +73,7 @@ public class RutinaReforzada extends Rutina
 		}
     }
     
-    private void mostrarEntrenamiento()
-    {
+    private void mostrarEntrenamiento() {
     	List<Ejercicio> ejercicios =  Entrenamientos.get(nmroEntrenamiento).getEjercicios();
     	int largo = ejercicios.size() - 1;
     	

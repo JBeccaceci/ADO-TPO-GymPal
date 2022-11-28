@@ -4,6 +4,7 @@ import entrenamiento.Entrenamiento;
 import entrenamiento.Ejercicio;
 import enums.ExigenciaMuscular;
 import gamificacion.Constancia;
+import notificacion.Notificacion;
 import observer.Observados;
 import socio.Historial;
 import socio.Socio;
@@ -49,7 +50,8 @@ public class Rutina extends Observados {
          * Una rutina se cumple a la perfección cuando se asisten todos los días de entrenamientosy se realizan
          * todos  los  ejercicios,  sin  importar  la  cantidad  de  series  y  repeticiones  que  el  usuario  hayarealizado
          */
-        this.notificarObservadores(new Constancia("Constancia"), "Objetivo constancia cumplido");
+        this.notificarObservadores(new Notificacion(
+                new Constancia("Constancia"), "Objetivo constancia cumplido"));
     }
     
     private void mostrarEntrenamiento() {

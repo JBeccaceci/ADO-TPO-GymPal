@@ -1,6 +1,7 @@
 package gamificacion;
 
 import observer.IObservador;
+import notificacion.Notificacion;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class Gamificacion implements IObservador {
 		trofeos.add(t);
 	}
 	
-	public void reomverTrofeo(Trofeo t) {
+	public void removerTrofeo(Trofeo t) {
 		trofeos.remove(t);
 	}
 
@@ -22,7 +23,7 @@ public class Gamificacion implements IObservador {
 	}
 
 	@Override
-	public void notificar(String message) {
+	public void notificar(Notificacion notificacion) {
 		// Nothing to do
 	}
 }

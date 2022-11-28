@@ -15,7 +15,6 @@ import java.util.List;
 
 public class AppTest {
 
-
     @Test
     public void shouldAnswerWithTrue() {
         Ejercicio bancoPlano = new Ejercicio("Banco Plano", GruposMusculares.Pecho, ExigenciaMuscular.Alto, 4, 12, 3, 10);

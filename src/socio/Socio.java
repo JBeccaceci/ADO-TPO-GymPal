@@ -7,8 +7,9 @@ import gamificacion.Creido;
 import gamificacion.Dedicacion;
 import gamificacion.Gamificacion;
 import mediciones.Medicion;
+import notificacion.Notificacion;
 import objetivo.TipoObjetivo;
-import observer.Notificaciones;
+import notificacion.Notificaciones;
 import observer.Observados;
 
 import java.util.*;
@@ -65,13 +66,10 @@ public class Socio extends Observados {
         if (existeMedicion.isPresent()) {
         	TipoObjetivo tipo = objetivo.getTipoObjetivo(); 
         	if (tipo.cumpleObjetivo(this.mediciones)) {
-                this.notificarObservadores(new Dedicacion("Dedicacion"), "Objetivo Dedicacion cumplido");
+                this.notificarObservadores(new Notificacion(
+                        new Dedicacion("Dedicacion"), "Objetivo Dedicacion cumplido"));
             }
         }
-    }
-
-    public void OtorgarTrofeo() {
-
     }
 
     public void nuevaMedicion(Medicion medicion) {
@@ -83,7 +81,8 @@ public class Socio extends Observados {
                 .stream()
                 .filter(m -> m.getTipo() == TipoMedicion.Peso).collect(Collectors.toList());
         if (pesoMediciones.size() > 3) {
-            this.notificarObservadores(new Creido("Creido"), "Objetivo creido cumplido");
+            this.notificarObservadores(new Notificacion(
+                    new Creido("Creido"), "Objetivo creido cumplido"));
         }
     }
 
