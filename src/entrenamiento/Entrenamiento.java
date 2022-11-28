@@ -50,5 +50,4 @@ public class Entrenamiento {
     {
     	return ejercicios;
     }
-
 }

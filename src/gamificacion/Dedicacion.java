@@ -9,11 +9,9 @@ import socio.Socio;
 public class Dedicacion implements Trofeo
 {
     public String Nombre;
-    public Date fecha;
 
-    public Dedicacion(String nombre, Date fecha) {
+    public Dedicacion(String nombre) {
         this.Nombre = nombre;
-        this.fecha = fecha;
     }
 
     public boolean cumpleTrofeo(Socio socio) 

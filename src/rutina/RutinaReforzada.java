@@ -17,8 +17,9 @@ public class RutinaReforzada extends Rutina
 		reforzar();
     }
 
-	public void reforzar(List<Entrenamiento> entrenamientos) 
+	public void reforzar() 
 	{
+		List<Entrenamiento> entrenamientos = rutinaReforzada.getEntrenamientos();
 		int largoE = entrenamientos.size() - 1;
 		for(int i = 0; i < largoE; i++)
 		{
@@ -31,7 +32,7 @@ public class RutinaReforzada extends Rutina
 				Ejercicio j = ejercicios.get(k);
 				j.setPesoAsignado(j.getPesoAsignado() * incrementador);
 				j.setRepeticiones(j.getRepeticiones() * incrementador);
-				j.setSeries(j.setSeries() * incrementador);
+				j.setSeries(j.getSeries() * incrementador);
 			}
 
 		}
@@ -89,8 +90,11 @@ public class RutinaReforzada extends Rutina
 		}
     }
     
-    private void mostrarEntrenamiento() {
-    	List<Ejercicio> ejercicios =  Entrenamientos.get(nmroEntrenamiento).getEjercicios();
+    private void mostrarEntrenamiento() 
+	{
+		List<Entrenamiento> entrenamientos = rutinaReforzada.getEntrenamientos();
+		int n = rutinaReforzada.getNmroEntrenamiento();
+    	List<Ejercicio> ejercicios =  entrenamientos.get(n).getEjercicios();
     	int largo = ejercicios.size() - 1;
     	
     	//mostramos los ejercicios que forman al entrenamiento del dia

@@ -67,4 +67,9 @@ public class Rutina extends Observados {
     public List<Entrenamiento> getEntrenamientos() {
         return entrenamientos;
     }
+
+    public int getNmroEntrenamiento()
+    {
+        return nmroEntrenamiento;
+    }
 }

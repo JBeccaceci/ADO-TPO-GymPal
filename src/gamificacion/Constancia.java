@@ -12,11 +12,9 @@ import java.util.List;
 public class Constancia implements Trofeo
 {
     public String Nombre;
-    public Date fecha;
 
-    public Constancia(String nombre, Date fecha){
+    public Constancia(String nombre){
         this.Nombre = nombre;
-        this.fecha = fecha;
     }
 
     public boolean cumpleTrofeo(Socio socio) {

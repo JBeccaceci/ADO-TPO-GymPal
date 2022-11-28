@@ -6,11 +6,9 @@ import socio.Socio;
 public class Creido implements Trofeo
 {
     public String Nombre;
-    public Date fecha;
        
-    public Creido(String nombre, Date fecha) {
+    public Creido(String nombre) {
         this.Nombre = nombre;
-        this.fecha = fecha;
     }
 
     public boolean cumpleTrofeo(Socio socio) {
