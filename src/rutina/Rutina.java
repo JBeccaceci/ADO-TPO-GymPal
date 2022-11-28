@@ -4,13 +4,12 @@ import entrenamiento.Entrenamiento;
 import entrenamiento.Ejercicio;
 import enums.ExigenciaMuscular;
 import gamificacion.Constancia;
-import observer.Observados;
 import socio.Historial;
 import socio.Socio;
 
 import java.util.*;
 
-public class Rutina extends Observados {
+public class Rutina {
 
     private List<Entrenamiento> entrenamientos;
     private int nmroEntrenamiento= 0;
@@ -43,13 +42,6 @@ public class Rutina extends Observados {
 
     	System.out.println("Entrenamiento Finalizado");
     	nmroEntrenamiento++;
-
-        /*
-         * Se  otorga este  trofeo a aquellos sociosque  cumplen  a la  perfección conlas rutinas.
-         * Una rutina se cumple a la perfección cuando se asisten todos los días de entrenamientosy se realizan
-         * todos  los  ejercicios,  sin  importar  la  cantidad  de  series  y  repeticiones  que  el  usuario  hayarealizado
-         */
-        this.notificarObservadores(new Constancia("Constancia"), "Objetivo constancia cumplido");
     }
     
     private void mostrarEntrenamiento() {

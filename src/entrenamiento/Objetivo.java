@@ -1,11 +1,10 @@
 package entrenamiento;
 
 import objetivo.TipoObjetivo;
-import observer.Observados;
 import rutina.Rutina;
 import rutina.RutinaReforzada;
 
-public class Objetivo extends Observados {
+public class Objetivo {
 
 	private TipoObjetivo tipoObjetivo;
     private Rutina rutina;

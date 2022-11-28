@@ -3,8 +3,7 @@ package gamificacion;
 import socio.Historial;
 import socio.Socio;
 
-public class Creido extends Trofeo
-{
+public class Creido extends Trofeo {
     public String Nombre;
        
     public Creido(String nombre) {
@@ -17,4 +16,8 @@ public class Creido extends Trofeo
         return cantidadPesajeMes > 3;
     }
 
+    @Override
+    public void notificarOtorgarTrofeo() {
+
+    }
 }

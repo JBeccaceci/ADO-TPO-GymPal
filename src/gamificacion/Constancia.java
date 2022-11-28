@@ -9,8 +9,7 @@ import socio.Socio;
 import java.util.List;
 
 
-public class Constancia extends Trofeo
-{
+public class Constancia extends Trofeo {
     public String Nombre;
 
     public Constancia(String nombre) {
@@ -29,4 +28,8 @@ public class Constancia extends Trofeo
         return totalEntrenamientos == entrenamientosCompletados;
     }
 
+    @Override
+    public void notificarOtorgarTrofeo() {
+
+    }
 }

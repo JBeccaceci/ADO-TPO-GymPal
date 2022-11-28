@@ -3,19 +3,18 @@ package socio;
 import entrenamiento.Objetivo;
 import enums.Sexo;
 import enums.TipoMedicion;
-import gamificacion.Creido;
-import gamificacion.Dedicacion;
 import gamificacion.Gamificacion;
 import mediciones.Medicion;
 import objetivo.TipoObjetivo;
-import observer.Notificaciones;
-import observer.Observados;
+import observer.Notificador;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
-public class Socio extends Observados {
+public class Socio {
     private int edad;
     private Sexo sexo;
     private int peso;
@@ -23,9 +22,8 @@ public class Socio extends Observados {
     private Objetivo objetivo;
     private List<Medicion> mediciones;
     private Historial historial;
-    private Observados observados;
     private Gamificacion gami;
-    private Notificaciones notificaciones;
+    private Notificador notificador;
 
     public Socio(int edad, Sexo sexo, int altura, Objetivo objetivo) {
         this.edad = edad;
@@ -33,19 +31,9 @@ public class Socio extends Observados {
         this.altura = altura;
         this.mediciones = new ArrayList<>();
         this.objetivo = objetivo;
-        this.observados = new Observados();
         this.historial = new Historial();
         this.gami = new Gamificacion();
-        this.notificaciones = new Notificaciones();
-
-        this.agregarObservador(gami);
-        this.agregarObservador(notificaciones);
-
-        this.objetivo.agregarObservador(gami);
-        this.objetivo.agregarObservador(notificaciones);
-
-        this.objetivo.getRutina().agregarObservador(gami);
-        this.objetivo.getRutina().agregarObservador(notificaciones);
+        this.notificador = new Notificador();
 
         init();
     }
@@ -65,7 +53,7 @@ public class Socio extends Observados {
         if (existeMedicion.isPresent()) {
         	TipoObjetivo tipo = objetivo.getTipoObjetivo(); 
         	if (tipo.cumpleObjetivo(this.mediciones)) {
-                this.notificarObservadores(new Dedicacion("Dedicacion"), "Objetivo Dedicacion cumplido");
+
             }
         }
     }
@@ -83,7 +71,7 @@ public class Socio extends Observados {
                 .stream()
                 .filter(m -> m.getTipo() == TipoMedicion.Peso).collect(Collectors.toList());
         if (pesoMediciones.size() > 3) {
-            this.notificarObservadores(new Creido("Creido"), "Objetivo creido cumplido");
+
         }
     }
 

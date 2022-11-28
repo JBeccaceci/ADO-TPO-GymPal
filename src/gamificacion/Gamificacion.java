@@ -5,7 +5,9 @@ import observer.IObservador;
 import java.util.List;
 
 
-public class Gamificacion implements IObservador {
+public class Gamificacion {
+	private List<IObservador> observadores;
+
 	private List<Trofeo> trofeos;
 	
 	public void agregarTrofeo(Trofeo t) {
@@ -14,15 +16,5 @@ public class Gamificacion implements IObservador {
 	
 	public void reomverTrofeo(Trofeo t) {
 		trofeos.remove(t);
-	}
-
-	@Override
-	public void objetivoCumplido(Trofeo trofeo) {
-		agregarTrofeo(trofeo);
-	}
-
-	@Override
-	public void notificar(String message) {
-		// Nothing to do
 	}
 }
