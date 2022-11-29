@@ -11,7 +11,8 @@ public class Objetivo extends Observados {
     private Rutina rutina;
     private int pesoInicial;
 
-    public Objetivo(TipoObjetivo tipoObjetivo) {
+    public Objetivo(TipoObjetivo tipoObjetivo) 
+    {
     	this.tipoObjetivo = tipoObjetivo;
     	this.rutina = tipoObjetivo.crearRutina();
     }

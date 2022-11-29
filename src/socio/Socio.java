@@ -20,7 +20,7 @@ public class Socio extends Observados {
     private int edad;
     private Sexo sexo;
     private int peso;
-    private int altura;
+    private float altura;
     private Objetivo objetivo;
     private List<Medicion> mediciones;
     private Historial historial;
@@ -28,7 +28,7 @@ public class Socio extends Observados {
     private Gamificacion gami;
     private Notificaciones notificaciones;
 
-    public Socio(int edad, Sexo sexo, int altura, Objetivo objetivo) {
+    public Socio(int edad, Sexo sexo, float altura, Objetivo objetivo) {
         this.edad = edad;
         this.sexo = sexo;
         this.altura = altura;
@@ -90,7 +90,7 @@ public class Socio extends Observados {
         return this.peso;
     } 
 
-    public int getAltura() {
+    public float getAltura() {
         return this.altura;
     }
 
