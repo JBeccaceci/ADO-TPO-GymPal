@@ -14,12 +14,12 @@ public class RutinaReforzada extends Rutina
 
     public RutinaReforzada() {
     	this.rutinaReforzada = this;
-		reforzar();
+		//reforzar();
     }
 
-	public void reforzar() 
+	public void reforzar(Rutina r) 
 	{
-		List<Entrenamiento> entrenamientos = rutinaReforzada.getEntrenamientos();
+		List<Entrenamiento> entrenamientos = r.getEntrenamientos();
 		int largoE = entrenamientos.size() - 1;
 		for(int i = 0; i < largoE; i++)
 		{

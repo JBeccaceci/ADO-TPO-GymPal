@@ -48,12 +48,12 @@ public class Socio extends Observados {
         this.objetivo.getRutina().agregarObservador(gami);
         this.objetivo.getRutina().agregarObservador(notificaciones);
 
-        init();
+        //nit();
     }
 
-    private void init() {
+    /*private void init() {
         mediciones.add(new Medicion(TipoMedicion.Altura, this.altura));
-    }
+    }*/
     
     /**
      * Actualizamos una medicion, si existe ya esa medicion en la lista
@@ -89,6 +89,10 @@ public class Socio extends Observados {
     public int getPeso() {
         return this.peso;
     } 
+    
+    public int getEdad() {
+        return this.edad;
+    } 
 
     public float getAltura() {
         return this.altura;
@@ -104,6 +108,10 @@ public class Socio extends Observados {
 
     public Objetivo getObjetivo() {
         return objetivo;
+    }
+    
+    public void setObjetivo(Objetivo obj) {
+        this.objetivo = obj;
     }
 
     public Historial getHistorial() {

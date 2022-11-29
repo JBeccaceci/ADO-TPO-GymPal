@@ -17,8 +17,8 @@ public class Objetivo extends Observados {
     	this.rutina = tipoObjetivo.crearRutina();
     }
     
-    public RutinaReforzada ReforzarRutina() {
-        return null;
+    public void ReforzarRutina(Rutina r) {
+    	this.rutina = r;
     }
 
     public void seTipoObjetivo(TipoObjetivo tipoObjetivo) {

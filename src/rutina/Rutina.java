@@ -26,7 +26,8 @@ public class Rutina extends Observados {
     public Rutina(List<Entrenamiento> entrenamientos,
                   ExigenciaMuscular exigenciaMuscular,
                   int tiempoEntrenamiento,
-                  int nivelAerobico) {
+                  int nivelAerobico) 
+    {
         this.entrenamientos = entrenamientos;
         this.inicio = new Date();
         this.exigenciaMuscular = exigenciaMuscular;
