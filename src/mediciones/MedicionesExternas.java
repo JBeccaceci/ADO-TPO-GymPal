@@ -8,6 +8,8 @@ import mediciones.IMedicionesExternas;
 public class MedicionesExternas implements IMedicionesExternas
 {
 	
+	private float ideal = 1;
+	
 	//valores de pesaje actual de usaurio
 	public void registrarMedicionAdapter(List<Medicion> l) 
 	{
@@ -20,13 +22,13 @@ public class MedicionesExternas implements IMedicionesExternas
 	{
 
 		double pesoActual = medicionActual.getPeso();
-		double pesoIdeal = pesoActual * 0.95; 
+		double pesoIdeal = pesoActual * ideal; 
 
 		double GrasaActual = medicionActual.getGrasaCorporal();
-		double GrasaIdeal = GrasaActual * 0.9; 
+		double GrasaIdeal = GrasaActual * ideal; 
 
-		double MasaActual = medicionActual.getGrasaCorporal();
-		double MasaIdeal = MasaActual * 0.9;
+		double MasaActual = medicionActual.getMasaMuscular();
+		double MasaIdeal = MasaActual * ideal;
 
 		Medicion medicionIdeal = new Medicion(pesoIdeal, GrasaIdeal, MasaIdeal);
 		return medicionIdeal;

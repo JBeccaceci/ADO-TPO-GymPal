@@ -19,8 +19,9 @@ public class MantenerFigura implements TipoObjetivo
 	//ESTE valor lo setea el coordinador o el usario
 	private int rangoPeso = 20;
 
-    public MantenerFigura() {
-        
+    public MantenerFigura() 
+    {
+    	
     }
 
     public Rutina crearRutina() {
@@ -29,9 +30,9 @@ public class MantenerFigura implements TipoObjetivo
     
     public boolean cumpleObjetivo(Socio socio) 
     {
-    	int ultimaMedicion = socio.getMediciones().size();
+    	int ultimaMedicion = socio.getMediciones().size() -1;
     	
-    	if(ultimaMedicion != 0)
+    	if(ultimaMedicion != -1)
     	{
 	    	double pesoUltimo = socio.getMediciones().get(ultimaMedicion).getPeso();
 	    	double pesoInicial = socio.getMediciones().get(0).getPeso();
