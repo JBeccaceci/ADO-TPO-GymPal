@@ -9,7 +9,7 @@ public class Medicion
 {
     private double Peso;
     private LocalDateTime fecha;
-    private double GrasaMuscular;
+    private double GrasaCorporal;
     private double MasaMuscular;
 
     //constructor
@@ -21,7 +21,7 @@ public class Medicion
     	
         this.Peso = Peso;
         this.fecha = f;
-        this.GrasaMuscular = GrasaMuscular;
+        this.GrasaCorporal = GrasaMuscular;
         this.MasaMuscular = MasaMuscular;
     }
 
@@ -35,8 +35,8 @@ public class Medicion
         this.fecha = fecha;
     }
 
-    public void setGrasaMuscular(double GrasaMuscular) {
-        this.GrasaMuscular = GrasaMuscular;
+    public void setGrasaCorporal(double GrasaMuscular) {
+        this.GrasaCorporal = GrasaMuscular;
     }
 
     public void setMasaMuscular(double MasaMuscular) {
@@ -52,8 +52,8 @@ public class Medicion
         return fecha;
     }
 
-    public double getGrasaMuscular() {
-        return GrasaMuscular;
+    public double getGrasaCorporal() {
+        return GrasaCorporal;
     }
 
     public double getMasaMuscular() {

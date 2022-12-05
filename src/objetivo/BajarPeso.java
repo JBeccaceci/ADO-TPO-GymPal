@@ -1,8 +1,8 @@
 package objetivo;
 
 import builder.EjerciciosBuilder;
-import mediciones.Medicion;
 import rutina.Rutina;
+import socio.Socio;
 import enums.ExigenciaMuscular;
 
 import java.util.*;
@@ -29,8 +29,21 @@ public class BajarPeso implements TipoObjetivo {
            return new Rutina(entrenamientoList, ExigenciaMuscular.Medio, 80, 3);
     }
 
-    public boolean cumpleObjetivo(List<Medicion> mediciones) 
+    public boolean cumpleObjetivo(Socio socio) 
     {
+    	int ultimaMedicion = socio.getMediciones().size();
+    	
+    	if(ultimaMedicion != 0)
+    	{
+	    	double peso = socio.getMediciones().get(ultimaMedicion).getPeso();
+	    	double pesoIdeal = socio.getAdapter().getMetidiconesIdealesAdapter(socio.getMediciones().get(ultimaMedicion)).getPeso();
+	    	
+	    	if(peso == pesoIdeal)
+	    	{
+	    		return true;
+	    	}
+    	}
+    	
         return false;
     }
     
@@ -39,15 +52,27 @@ public class BajarPeso implements TipoObjetivo {
 	{
 	        System.out.println("Le gustaria pasa al objetivo MANTENER FIGURA: ");
 	        Scanner usuario = new Scanner (System.in);
-	        System.out.println("S/N");
+	        System.out.println("s/n");
 	    	String opcion = usuario.next();
-
-	        if(opcion == "S")
+	    	
+	    	while(opcion.equals("s") == false & opcion.equals("n") == false)
+	    	{
+	    		System.out.println("Porfavor ingrese s o n: ");
+	    		System.out.println("AALOG: " + opcion);
+	 	    	opcion = usuario.next();
+	    	}
+	    	
+	    	usuario.close();
+	    	
+	        if(opcion.equals("s") == true)
 	        {
+	        	System.out.println("El tipo de objetivo cambia a MANTENER FIGURA: ");
 	            return true;
 	        }
-
-	        return false;
+	        else
+	        {
+	        	return false;
+	        }
 	}
 
 

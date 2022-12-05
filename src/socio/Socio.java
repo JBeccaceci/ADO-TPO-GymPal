@@ -78,6 +78,11 @@ public class Socio implements IObservable
     {
         return this.sexo;
     }
+    
+    public IMedicionesExternas getAdapter()
+    {
+    	return this.AdapterM;
+    }
 
     public List<Medicion> getMediciones() 
     {

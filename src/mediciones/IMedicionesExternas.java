@@ -7,7 +7,7 @@ import socio.Socio;
 
 public interface IMedicionesExternas  
 {
-	public void registrarMedicionAdapter(List<Medicion> l);
+	public void registrarMedicionAdapter(List<Medicion> lista);
 	public Medicion getMetidiconesIdealesAdapter(Medicion medicionActual);
 }
 	

@@ -1,8 +1,8 @@
 package objetivo;
 
 import builder.EjerciciosBuilder;
-import mediciones.Medicion;
 import rutina.Rutina;
+import socio.Socio;
 import enums.ExigenciaMuscular;
 
 import java.util.Collections;
@@ -23,10 +23,25 @@ public class TonificarCuerpo implements TipoObjetivo
         return this.generarRutina();
     }
 
-    public boolean cumpleObjetivo(List<Medicion> mediciones) 
+    public boolean cumpleObjetivo(Socio socio) 
     {
-         
-         return false;
+    	int ultimaMedicion = socio.getMediciones().size();
+    	
+    	if(ultimaMedicion != 0)
+    	{
+	    	double masaMuscular = socio.getMediciones().get(ultimaMedicion).getPeso();
+	    	double grasaCorporal = socio.getMediciones().get(ultimaMedicion).getPeso();
+	    	
+	    	double masaMuscularIdeal = socio.getAdapter().getMetidiconesIdealesAdapter(socio.getMediciones().get(ultimaMedicion)).getMasaMuscular();
+	    	double grasaCorporalIdeal = socio.getAdapter().getMetidiconesIdealesAdapter(socio.getMediciones().get(ultimaMedicion)).getGrasaCorporal();
+	    	
+	    	if(masaMuscular == masaMuscularIdeal & grasaCorporal == grasaCorporalIdeal)
+	    	{
+	    		return true;
+	    	}
+    	}
+    	
+        return false;
     }
 
     private Rutina generarRutina() {
@@ -45,16 +60,27 @@ public class TonificarCuerpo implements TipoObjetivo
 
     public boolean ProponerMantenerFigura() 
 	{
-	        System.out.println("Le gustaria pasa al objetivo MANTENER FIGURA: ");
-	        Scanner usuario = new Scanner (System.in);
-	        System.out.println("S/N");
-	    	String opcion = usuario.next();
-
-	        if(opcion == "S")
-	        {
-	            return true;
-	        }
-
-	        return false;
+        System.out.println("Le gustaria pasa al objetivo MANTENER FIGURA: ");
+        Scanner usuario = new Scanner (System.in);
+        System.out.println("S/N");
+    	String opcion = usuario.next();
+    	
+    	while(opcion != "S" || opcion != "N")
+    	{
+    		System.out.println("Porfavor ingrese S o N: ");
+    		System.out.println("S/N");
+ 	    	opcion = usuario.next();
+    	}
+    	
+    	usuario.close();
+    	
+        if(opcion == "S")
+        {
+            return true;
+        }
+        else
+        {
+        	return false;
+        }
 	}
 }

@@ -1,7 +1,10 @@
 package objetivo;
 
+import java.util.List;
+
 import gamificacion.IObservable;
 import gamificacion.ItrofeoObservador;
+import mediciones.Medicion;
 import gamificacion.IObservable;
 import rutina.Rutina;
 
@@ -10,15 +13,11 @@ public class Objetivo implements IObservable {
 	private TipoObjetivo tipoObjetivo;
     private Rutina rutina;
     private int pesoInicial;
-
-    public Objetivo(TipoObjetivo tipoObjetivo) 
-    {
-    	this.tipoObjetivo = tipoObjetivo;
-    	this.rutina = tipoObjetivo.crearRutina();
-    }
     
-    public void ReforzarRutina(Rutina r) {
-    	this.rutina = r;
+    public void cambiarObjetivo(TipoObjetivo tipo)
+    {
+    	this.tipoObjetivo = tipo;
+    	this.rutina = tipoObjetivo.crearRutina();
     }
 
     public void seTipoObjetivo(TipoObjetivo tipoObjetivo) {

@@ -32,8 +32,9 @@ public class EntrenamientoCompletado
 	    	
 	    for(int i = 0; i < largo; i++)
 	    {
-	    	System.out.println("Ejercicio: " + "\n");
+	    	System.out.println("Ejercicio: ");
 	    	ejercicios.get(i).mostrarEjC();
+	    	System.out.println("\n");
 	    }	
 	}
 	

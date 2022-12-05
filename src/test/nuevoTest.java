@@ -22,8 +22,13 @@ public class nuevoTest {
 		
 		List<String> entrenamientosCompletados = new ArrayList<>();
 		entrenamientosCompletados.add("a");
+		entrenamientosCompletados.add("b");
+		entrenamientosCompletados.add("c");
 		
 		System.out.println(entrenamientosCompletados.size() - 1);
+		int ultimo = entrenamientosCompletados.size() - 1;
+		
+		System.out.println(entrenamientosCompletados.get(ultimo));
 
 	}
 

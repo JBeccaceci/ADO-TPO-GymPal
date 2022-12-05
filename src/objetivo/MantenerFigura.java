@@ -1,8 +1,10 @@
 package objetivo;
 
 import builder.EjerciciosBuilder;
+import mediciones.IMedicionesExternas;
 import mediciones.Medicion;
 import rutina.Rutina;
+import socio.Socio;
 import enums.ExigenciaMuscular;
 
 import java.util.Collections;
@@ -15,7 +17,7 @@ import rutina.Entrenamiento;
 public class MantenerFigura implements TipoObjetivo 
 {
 	//ESTE valor lo setea el coordinador o el usario
-	private int rangoPeso = 100;
+	private int rangoPeso = 20;
 
     public MantenerFigura() {
         
@@ -24,11 +26,47 @@ public class MantenerFigura implements TipoObjetivo
     public Rutina crearRutina() {
         return this.generarRutina();
     }
-
-    public boolean cumpleObjetivo(List<Medicion> mediciones) {
-    	 int pesoInicial = 0;
-    	 
-         return pesoInicial >= rangoPeso - 5 & pesoInicial <= rangoPeso + 5;
+    
+    public boolean cumpleObjetivo(Socio socio) 
+    {
+    	int ultimaMedicion = socio.getMediciones().size();
+    	
+    	if(ultimaMedicion != 0)
+    	{
+	    	double pesoUltimo = socio.getMediciones().get(ultimaMedicion).getPeso();
+	    	double pesoInicial = socio.getMediciones().get(0).getPeso();
+	    	
+	    	if(pesoInicial == pesoUltimo)
+	    	{
+	    		return true;
+	    	}
+	    	
+	    	if(pesoInicial > pesoUltimo)
+	    	{
+	    		if((pesoInicial - pesoUltimo) <= rangoPeso)
+	    		{
+	    			return true;
+	    		}
+	    		else
+	    		{
+	    			return false;
+	    		}
+	    	}
+	    	
+	    	if(pesoInicial < pesoUltimo)
+	    	{
+	    		if((pesoUltimo - pesoInicial) <= rangoPeso)
+	    		{
+	    			return true;
+	    		}
+	    		else
+	    		{
+	    			return false;
+	    		}
+	    	}
+    	}
+   
+        return false;
     }
 
     private Rutina generarRutina() {
@@ -48,4 +86,10 @@ public class MantenerFigura implements TipoObjetivo
     {
     	this.rangoPeso = valor;
     }
+
+	@Override
+	public boolean ProponerMantenerFigura() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

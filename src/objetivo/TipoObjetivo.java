@@ -1,12 +1,12 @@
 package objetivo;
 
-import mediciones.Medicion;
 import rutina.Rutina;
+import socio.Socio;
 
-import java.util.List;
-
-public interface TipoObjetivo {
+public interface TipoObjetivo 
+{
 
     public abstract Rutina crearRutina();
-    public abstract boolean cumpleObjetivo(List<Medicion> mediciones);
+    public abstract boolean cumpleObjetivo(Socio socio);
+    public boolean ProponerMantenerFigura();
 }

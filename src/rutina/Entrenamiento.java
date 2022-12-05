@@ -28,15 +28,16 @@ public class Entrenamiento {
     {
     	System.out.println("Ejercicio a realizar: " + "\n");
     	j.mostrarEjercicio();
+    	System.out.println("\n");
     }
 
     public EjercicioCompletado finalizarEjercicio(Ejercicio j)
     {
     	EjercicioCompletado jc = new EjercicioCompletado();
     	//el nmro random da 2 y 1
-    	//int r = (int) ((Math.random() * (3 - 1)) + 1);
+    	int r = (int) ((Math.random() * (7 - 1)) + 1);
     	//para verificar que hizo todo bien r =1
-    	int r = 1;
+    	//int r = 1;
     	jc.crearEjercicioCompletado(j.getNombre(), j.getSeries()/r, j.getRepeticiones()/r, j.getPesoAsignado()/r);
     	nmroEj++;
     	
@@ -45,12 +46,14 @@ public class Entrenamiento {
     
     public void mostrarEntrenamiento()
     {	
-    	int largo = ejercicios.size() - 1;
+    	int largo = ejercicios.size();
     	
     	for(int i = 0; i < largo; i++)
     	{
     		System.out.println("Ejercicio: " + ejercicios.get(i).getNombre());
     	}
+    	
+    	System.out.println("\n");
     	
     }
     

@@ -1,16 +1,14 @@
 import socio.Socio;
 import objetivo.Objetivo;
+import objetivo.TipoObjetivo;
 import enums.Sexo;
 import objetivo.BajarPeso;
-import objetivo.MantenerFigura;
-import objetivo.TipoObjetivo;
 import rutina.EntrenamientoCompletado;
 import rutina.Rutina;
 
 
 public class AppTest {
 
-	static TipoObjetivo tipo;
 	static Objetivo obj;
 	static Socio socio;
 	
@@ -21,6 +19,7 @@ public class AppTest {
 		//reforzarRutina(obj.getRutina());
 		
 		realizarEntrenamiento(obj.getRutina());
+		verificarCumpleObj(obj.getTipoObjetivo(), socio);
 	}
 	
 	public static void generarSocio()
@@ -30,9 +29,9 @@ public class AppTest {
 	
 	public static void generarRutina(Socio socio)
 	{
-		tipo = new BajarPeso();
 		//La rutina se genera cuando se selecciona el objetivo
-		obj = new Objetivo(tipo);
+		obj = new Objetivo();
+		obj.cambiarObjetivo(new BajarPeso());
 		socio.setObjetivo(obj);
 	}
 	
@@ -52,5 +51,20 @@ public class AppTest {
 	public static void reforzarRutina(Rutina r)
 	{
 		r.refuerzo();
+	}
+	
+	public static void verificarCumpleObj(TipoObjetivo tipo, Socio socio)
+	{
+		System.out.println("Verificamos el cumplimiento del objetivo....");
+		
+		if(tipo.cumpleObjetivo(socio) == true)
+		{
+			System.out.println("Cumpliste con el objetivo!!!");
+			tipo.ProponerMantenerFigura();
+		}
+		else
+		{
+			System.out.println("No cumpliste con el objetivo...:c");
+		}
 	}
 }
