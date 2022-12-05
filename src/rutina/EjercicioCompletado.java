@@ -16,4 +16,13 @@ public class EjercicioCompletado
 		this.repeticiones = r;
 		this.pesoAsignado = p;
 	}
+	
+	
+	public void mostrarEjC()
+	{
+		System.out.println("Nombre: " + this.nombre);
+    	System.out.println("Series: " + this.series);
+    	System.out.println("Repeteciones: " + this.repeticiones);    	
+    	System.out.println("Peso: " + this.pesoAsignado);
+	}
 }

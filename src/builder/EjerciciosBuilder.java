@@ -25,9 +25,9 @@ public class EjerciciosBuilder {
         ejercicioList.add(new Ejercicio("Dominada", GruposMusculares.Espalda, ExigenciaMuscular.Alto, 4, 8, 2, 0));
         ejercicioList.add(new Ejercicio("Sentadilla", GruposMusculares.Piernas, ExigenciaMuscular.Alto, 4, 8, 2, 15));
         ejercicioList.add(new Ejercicio("Press Militar con Barra", GruposMusculares.Hombros, ExigenciaMuscular.Alto, 4, 8, 2, 10));
-        ejercicioList.add(new Ejercicio("Bicep con barra Scout", GruposMusculares.Brazos, ExigenciaMuscular.Alto, 4, 5, 8, 10));
+       // ejercicioList.add(new Ejercicio("Bicep con barra Scout", GruposMusculares.Brazos, ExigenciaMuscular.Alto, 4, 5, 8, 10));
 
-        ejercicioList.add(new Ejercicio("Bicicleta", GruposMusculares.Piernas, ExigenciaMuscular.Bajo, 4, 5, 8, 0));
+        //ejercicioList.add(new Ejercicio("Bicicleta", GruposMusculares.Piernas, ExigenciaMuscular.Bajo, 4, 5, 8, 0));
         ejercicioList.add(new Ejercicio("Cinta", GruposMusculares.Piernas, ExigenciaMuscular.Bajo, 4, 5, 7, 0));
     }
 

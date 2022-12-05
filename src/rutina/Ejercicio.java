@@ -70,4 +70,19 @@ public class Ejercicio extends Entrenamiento {
 	{
 		return pesoAsignado;
 	}
+
+	public void setPesoAsignado(int i) 
+	{
+		this.pesoAsignado = i;	
+	}
+
+	public void setRepeticiones(int i) 
+	{
+		this.repeticiones = i;
+	}
+
+	public void setSeries(int i) 
+	{
+		this.series = i;
+	}
 }

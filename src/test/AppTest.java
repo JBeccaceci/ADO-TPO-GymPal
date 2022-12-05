@@ -3,6 +3,7 @@ import objetivo.Objetivo;
 import enums.Sexo;
 import objetivo.BajarPeso;
 import objetivo.TipoObjetivo;
+import rutina.EntrenamientoCompletado;
 import rutina.Rutina;
 
 
@@ -16,8 +17,9 @@ public class AppTest {
 	{
 		generarSocio();
 		generarRutina(socio);
+		//reforzarRutina(obj.getRutina());
+		
 		realizarEntrenamiento(obj.getRutina());
-		reforzarRutina(socio);
 	}
 	
 	public static void generarSocio()
@@ -35,12 +37,18 @@ public class AppTest {
 	
 	public static void realizarEntrenamiento(Rutina r)
 	{	
+		EntrenamientoCompletado eC = new EntrenamientoCompletado();
+		
 		r.comenzarEntrenamiento(r.getEntrenamientoActual());
-		r.finalizarEntrenamiento(r.getEntrenamientoActual());
+		eC = r.finalizarEntrenamiento(r.getEntrenamientoActual());
+		r.reinciarNmroEntActual();
+		System.out.println("\n");
+		System.out.println("**************************EC**************************" + "\n");
+		eC.mostrarEntrenamiento();
 	}
 	
-	public static void reforzarRutina(Socio socio)
+	public static void reforzarRutina(Rutina r)
 	{
-		
+		r.refuerzo();
 	}
 }

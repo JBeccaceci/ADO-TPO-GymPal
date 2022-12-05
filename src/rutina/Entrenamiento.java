@@ -26,7 +26,7 @@ public class Entrenamiento {
 
     public void comenzarEjercicio(Ejercicio j) 
     {
-    	System.out.println("Ejercicio a realizar: ");
+    	System.out.println("Ejercicio a realizar: " + "\n");
     	j.mostrarEjercicio();
     }
 
@@ -34,7 +34,9 @@ public class Entrenamiento {
     {
     	EjercicioCompletado jc = new EjercicioCompletado();
     	//el nmro random da 2 y 1
-    	int r = (int) ((Math.random() * (3 - 1)) + 1);
+    	//int r = (int) ((Math.random() * (3 - 1)) + 1);
+    	//para verificar que hizo todo bien r =1
+    	int r = 1;
     	jc.crearEjercicioCompletado(j.getNombre(), j.getSeries()/r, j.getRepeticiones()/r, j.getPesoAsignado()/r);
     	nmroEj++;
     	

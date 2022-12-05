@@ -1,13 +1,12 @@
 package gamificacion;
 
+import entrenamiento.Entrenamiento;
+import entrenamiento.Objetivo;
+import rutina.Rutina;
 import socio.Historial;
 import socio.Socio;
 
 import java.util.List;
-
-import rutina.Entrenamiento;
-import objetivo.Objetivo;
-import rutina.Rutina;
 
 
 public class Constancia implements Trofeo

@@ -1,7 +1,6 @@
 package socio;
 
 import enums.Sexo;
-import enums.TipoMedicion;
 import gamificacion.Creido;
 import gamificacion.Dedicacion;
 import gamificacion.Gamificacion;
@@ -111,9 +110,5 @@ public class Socio extends Observados {
     
     public void setObjetivo(Objetivo obj) {
         this.objetivo = obj;
-    }
-
-    public Historial getHistorial() {
-        return historial;
     }
 }

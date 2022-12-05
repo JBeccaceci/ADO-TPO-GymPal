@@ -1,27 +1,17 @@
 package mediciones;
 
-public abstract class IMedicionesExternas 
+import java.lang.reflect.Constructor;
+
+public abstract class IMedicionesExternas extends MedicionesExternas
 {
-	public void ObtnenerMediciones() {
+
+	public Medicion registrarMedicionAdapter() {
+		return registrarMedicion();
 	}
 	
-	public boolean MedicionesIdeales() {
-		return true;
+	public double getMetidiconesIdealesAdapter() {
+		return getMetidiconesIdeales();
 	}
-	
-	public int PesoIdeal() 
-	{
-		return 1;
-	}
-	
-	public int GrasaCorporalIdeal() 
-	{
-		return 1;
-	}
-	
-	public int MasaMuscularlIdeal() 
-	{
-		return 1;
-	}
-	
+
 }
+	
