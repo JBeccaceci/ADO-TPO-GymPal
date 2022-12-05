@@ -8,9 +8,9 @@ import rutina.RutinaReforzada;
 
 public class AppTest {
 
-	static TipoObjetivo tipo = new BajarPeso();
-	static Objetivo obj = new Objetivo(tipo);
-	static Socio socio = new Socio(25, Sexo.Masculino, 1.7f, obj);
+	static TipoObjetivo tipo;
+	static Objetivo obj;
+	static Socio socio;
 	
 	public static void main(String[] args) 
 	{
