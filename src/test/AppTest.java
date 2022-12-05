@@ -20,7 +20,6 @@ public class AppTest {
 		generarSocio();
 		generarRutina(socio);
 		
-		
 		//RUTINA
 		//reforzarRutina(obj.getRutina());
 		//realizarEntrenamiento(obj.getRutina());
@@ -30,7 +29,6 @@ public class AppTest {
 		//OBJETIVO
 		socio.ingresarMediciones();
 		verificarCumpleObj(obj.getTipoObjetivo(), socio);
-		
 		
 		realizarEntrenamiento(obj.getRutina());
 	}
