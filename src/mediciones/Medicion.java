@@ -1,73 +1,54 @@
 package mediciones;
-
-import enums.Clasificacion;
-import enums.TipoMedicion;
-import enums.Clasificacion;
-
+ 
 import java.util.*;
-
-
+ 
 public class Medicion 
 {
-    private TipoMedicion tipo;
-    private int valor;
+    private double Peso;
     private Date fecha;
-    private Clasificacion clasificacion;
-    private IMedicionesExternas medicionesExternas;
-
-    public Medicion() {
-
-    }
-
-    public Medicion(TipoMedicion tipo, int valor) {
-        this.tipo = tipo;
-        this.valor = valor;
+    private double GrasaMuscular;
+    private double MasaMuscular;
+ 
+    //constructor
+    public Medicion(double Peso, Date fecha, double GrasaMuscular, double MasaMuscular ) {
+        this.Peso = Peso;
         this.fecha = new Date();
+        this.GrasaMuscular = GrasaMuscular;
+        this.MasaMuscular = MasaMuscular;
     }
-
-    public void setTipo(TipoMedicion tipo) {
-        this.tipo = tipo;
+ 
+    //set
+    public void setPeso(double Peso) {
+        this.Peso = Peso;
     }
-
-    public void setValor(int valor) {
-        this.valor = valor;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
+ 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-
-    public void setClasificacion(Clasificacion clasificacion) {
-        this.clasificacion = clasificacion;
+ 
+    public void setGrasaMuscular(double GrasaMuscular) {
+        this.GrasaMuscular = GrasaMuscular;
     }
-
-    public int getValor()
-    {
-        return valor;
-    }
-    
-    public IMedicionesExternas getME()
-    {
-    	return this.medicionesExternas;
+ 
+    public void setMasaMuscular(double MasaMuscular) {
+        this.MasaMuscular = MasaMuscular;
     }
     
-    public void setME(IMedicionesExternas ME)
-    {
-    	this.medicionesExternas = ME;
+    //get
+    public double getPeso() {
+        return Peso;
     }
-    
-    
-    public TipoMedicion getTipo()
-    {
-        return tipo;
+ 
+    public Date getFecha() {
+        return fecha;
     }
-
-    public Clasificacion getClasificacion()
-    {
-        return clasificacion;
+ 
+    public double getGrasaMuscular() {
+        return GrasaMuscular;
     }
+ 
+    public double getMasaMuscular() {
+        return MasaMuscular;
+    }
+ 
 }

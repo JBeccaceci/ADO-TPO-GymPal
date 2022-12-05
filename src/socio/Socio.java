@@ -1,6 +1,5 @@
 package socio;
 
-import entrenamiento.Objetivo;
 import enums.Sexo;
 import enums.TipoMedicion;
 import gamificacion.Creido;
@@ -15,6 +14,8 @@ import observer.Observados;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import objetivo.Objetivo;
+
 
 public class Socio extends Observados {
     private int edad;
@@ -23,7 +24,6 @@ public class Socio extends Observados {
     private float altura;
     private Objetivo objetivo;
     private List<Medicion> mediciones;
-    private Historial historial;
     private Observados observados;
     private Gamificacion gami;
     private Notificaciones notificaciones;
@@ -35,18 +35,17 @@ public class Socio extends Observados {
         this.mediciones = new ArrayList<>();
         this.objetivo = objetivo;
         this.observados = new Observados();
-        this.historial = new Historial();
         this.gami = new Gamificacion();
         this.notificaciones = new Notificaciones();
 
         this.agregarObservador(gami);
         this.agregarObservador(notificaciones);
 
-        this.objetivo.agregarObservador(gami);
-        this.objetivo.agregarObservador(notificaciones);
+       // this.objetivo.agregarObservador(gami);
+        //this.objetivo.agregarObservador(notificaciones);
 
-        this.objetivo.getRutina().agregarObservador(gami);
-        this.objetivo.getRutina().agregarObservador(notificaciones);
+       // this.objetivo.getRutina().agregarObservador(gami);
+       // this.objetivo.getRutina().agregarObservador(notificaciones);
 
         //nit();
     }
@@ -60,7 +59,7 @@ public class Socio extends Observados {
      * debemos de verifica si se cumple o no el objetivo para pasar al siguiente.
      * @param medicion
      */
-    public void actualizarMedicion(Medicion medicion) {
+    /*public void actualizarMedicion(Medicion medicion) {
         Optional<Medicion> existeMedicion = mediciones.stream()
                 .filter(m -> m.getTipo() == medicion.getTipo()).findAny();
         if (existeMedicion.isPresent()) {
@@ -70,9 +69,9 @@ public class Socio extends Observados {
                         new Dedicacion("Dedicacion"), "Objetivo Dedicacion cumplido"));
             }
         }
-    }
+    }*/
 
-    public void nuevaMedicion(Medicion medicion) {
+   /* public void nuevaMedicion(Medicion medicion) {
         mediciones.add(medicion);
 
         //  Agregar filtro de fecha, validar que las 3 mediciones
@@ -84,7 +83,7 @@ public class Socio extends Observados {
             this.notificarObservadores(new Notificacion(
                     new Creido("Creido"), "Objetivo creido cumplido"));
         }
-    }
+    }*/
 
     public int getPeso() {
         return this.peso;

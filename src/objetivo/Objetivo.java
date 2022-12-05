@@ -1,9 +1,7 @@
-package entrenamiento;
+package objetivo;
 
-import objetivo.TipoObjetivo;
 import observer.Observados;
 import rutina.Rutina;
-import rutina.RutinaReforzada;
 
 public class Objetivo extends Observados {
 

@@ -1,11 +1,12 @@
 package builder;
 
-import entrenamiento.Ejercicio;
 import enums.ExigenciaMuscular;
 import enums.GruposMusculares;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import rutina.Ejercicio;
 
 public class EjerciciosBuilder {
     private static EjerciciosBuilder ejerciciosBuilder = null;

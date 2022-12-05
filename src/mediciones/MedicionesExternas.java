@@ -1,29 +1,35 @@
 package mediciones;
-
+ 
 import java.util.List;
-
-public class MedicionesExternas extends IMedicionesExternas 
+import mediciones.Medicion;
+ 
+public class MedicionesExternas 
 {
-	public void ObtnenerMediciones() {
-	}
-	
-	public boolean MedicionesIdeales() {
-		return true;
-	}
-	
-	public int PesoIdeal() 
-	{
-		return 1;
-	}
-	
-	public int GrasaCorporalIdeal() 
-	{
-		return 1;
-	}
-	
-	public int MasaMuscularlIdeal() 
-	{
-		return 1;
-	}
-
+    
+    //valores de pesaje actual de usaurio
+    public Medicion registrarMedicion() {
+        
+        Medicion medicionActual = new Medicion(80, null, 20, 40);
+        
+        return medicionActual;
+    }
+    
+    //valores de pesaje ideal de usaurio
+    public Medicion getMetidiconesIdeales(Medicion medicionActual) {
+ 
+        double pesoActual = medicionActual.getPeso();
+        double pesoIdeal = pesoActual * 0.95; 
+ 
+        double GrasaActual = medicionActual.getGrasaMuscular();
+        double GrasaIdeal = GrasaActual * 0.9; 
+ 
+        double MasaActual = medicionActual.getGrasaMuscular();
+        double MasaIdeal = MasaActual * 0.9;
+ 
+        Medicion medicionIdeal = new Medicion(pesoIdeal, null, GrasaIdeal, MasaIdeal);
+        
+        return medicionIdeal;
+    }
+    
+ 
 }

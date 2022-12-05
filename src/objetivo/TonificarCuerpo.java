@@ -1,8 +1,6 @@
 package objetivo;
 
 import builder.EjerciciosBuilder;
-import entrenamiento.Ejercicio;
-import entrenamiento.Entrenamiento;
 import mediciones.Medicion;
 import rutina.Rutina;
 import enums.ExigenciaMuscular;
@@ -17,6 +15,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+
+import rutina.Ejercicio;
+import rutina.Entrenamiento;
 
 public class TonificarCuerpo implements TipoObjetivo 
 {

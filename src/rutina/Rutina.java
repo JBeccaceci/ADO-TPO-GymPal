@@ -1,20 +1,21 @@
 package rutina;
 
-import entrenamiento.Entrenamiento;
-import entrenamiento.Ejercicio;
 import enums.ExigenciaMuscular;
 import gamificacion.Constancia;
 import notificacion.Notificacion;
 import observer.Observados;
-import socio.Historial;
 import socio.Socio;
 
 import java.util.*;
 
+import rutina.Ejercicio;
+import rutina.Entrenamiento;
+
 public class Rutina extends Observados {
 
     private List<Entrenamiento> entrenamientos;
-    private int nmroEntrenamiento= 0;
+    private List<EntrenamientoCompletado> entrenamientosCompletados;
+    private int nmroEntrenamiento;
     private Date inicio;
     private ExigenciaMuscular exigenciaMuscular;
     private int tiempoEntrenamiento;
@@ -33,44 +34,40 @@ public class Rutina extends Observados {
         this.exigenciaMuscular = exigenciaMuscular;
         this.tiempoEntrenamiento = tiempoEntrenamiento;
         this.nivelAerobico = nivelAerobico;
+        this.nmroEntrenamiento = 0;
+        this.entrenamientosCompletados = new ArrayList<>();
     }
 
-    public void comenzarEntrenamiento(Socio socio) {
-    	mostrarEntrenamiento();
+    public void comenzarEntrenamiento(Entrenamiento e) 
+    {
+    	System.out.println("Detalles del Entrenamiento: ");
+    	e.mostrarEntrenamiento();
+    	e.comenzarEjercicio(e.getEjActual());
     }
 
-    public void finalizarEntrenamiento(Socio socio) {
-        Historial historial = socio.getHistorial();
-        historial.guardarEntrenamientosCompletados();
-
-    	System.out.println("Entrenamiento Finalizado");
+    public EntrenamientoCompletado finalizarEntrenamiento(Entrenamiento e) 
+    {
+    	EntrenamientoCompletado eC = new EntrenamientoCompletado();
+    	eC.crearEntrenamientoCompletado();
+    	eC.agregarEjercicio(e.finalizarEjercicio(e.getEjActual()));
+    	e.reinciarNmroEjActual();
     	nmroEntrenamiento++;
-
-        /*
-         * Se  otorga este  trofeo a aquellos sociosque  cumplen  a la  perfección conlas rutinas.
-         * Una rutina se cumple a la perfección cuando se asisten todos los días de entrenamientosy se realizan
-         * todos  los  ejercicios,  sin  importar  la  cantidad  de  series  y  repeticiones  que  el  usuario  hayarealizado
-         */
-        this.notificarObservadores(new Notificacion(
-                new Constancia("Constancia"), "Objetivo constancia cumplido"));
+    	
+    	return eC;
     }
     
-    private void mostrarEntrenamiento() {
-    	List<Ejercicio> ejercicios =  entrenamientos.get(nmroEntrenamiento).getEjercicios();
-    	int largo = ejercicios.size() - 1;
-    	
-    	//mostramos los ejercicios que forman al entrenamiento del dia
-    	for (int i = 0; i < largo; i++) {
-    		System.out.println("Nombre: " + ejercicios.get(i).getNombre());
-    	}
-    } 
-    
-    public List<Entrenamiento> getEntrenamientos() {
+    public List<Entrenamiento> getEntrenamientos() 
+    {
         return entrenamientos;
     }
-
-    public int getNmroEntrenamiento()
+    
+    public Entrenamiento getEntrenamientoActual()
     {
-        return nmroEntrenamiento;
+    	return entrenamientos.get(nmroEntrenamiento);
+    }
+    
+    public void reinciarNmroEjActual()
+    {
+    	this.nmroEntrenamiento = 0;
     }
 }

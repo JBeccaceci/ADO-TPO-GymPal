@@ -2,7 +2,7 @@ package gamificacion;
 
 import java.util.*;
 
-import entrenamiento.Objetivo;
+import objetivo.Objetivo;
 import objetivo.TipoObjetivo;
 import socio.Socio;
 

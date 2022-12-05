@@ -1,4 +1,4 @@
-package entrenamiento;
+package rutina;
 
 import enums.ExigenciaMuscular;
 import enums.GruposMusculares;
@@ -12,11 +12,11 @@ public class Ejercicio extends Entrenamiento {
     private int repeticiones;
     private int nivelAerobico;
     private int pesoAsignado;
-    private int repetcionesCompletadas;
     
     public Ejercicio() { }
     
-    public Ejercicio(String nombre, GruposMusculares grupoMuscular, ExigenciaMuscular exigenciaMuscular, int series, int repeticiones, int nivelAerobico, int pesoAsignado) {
+    public Ejercicio(String nombre, GruposMusculares grupoMuscular, ExigenciaMuscular exigenciaMuscular, int series, int repeticiones, int nivelAerobico, int pesoAsignado) 
+    {
         this.nombre = nombre;
         this.grupoMuscular = grupoMuscular;
         this.exigenciaMuscular = exigenciaMuscular;
@@ -24,23 +24,27 @@ public class Ejercicio extends Entrenamiento {
         this.repeticiones = repeticiones;
         this.nivelAerobico = nivelAerobico;
         this.pesoAsignado = pesoAsignado;
-        this.repetcionesCompletadas = 0;
     }
 
     public ExigenciaMuscular getExigenciaMuscular() {
         return exigenciaMuscular;
     }
-
-    public void reiniciarRepeticionesCompletadas()
-    {
-    	this.repetcionesCompletadas = 0;
-    }
     
-    public void modificarEjercicio(int series, int repeticiones, int peso) {
+    
+    public void modificarEjercicio(int series, int repeticiones, int peso) 
+    {
 		this.series = series;
 		this.repeticiones = repeticiones;
 		this.pesoAsignado = peso;
 	}
+    
+    public void mostrarEjercicio()
+    {
+    	System.out.println("Nombre: " + this.nombre);
+    	System.out.println("Series: " + this.series);
+    	System.out.println("Repeteciones: " + this.repeticiones);    	
+    	System.out.println("Peso: " + this.pesoAsignado);
+    }
     
     public String getNombre() 
     {
@@ -65,25 +69,5 @@ public class Ejercicio extends Entrenamiento {
 	public int getPesoAsignado() 
 	{
 		return pesoAsignado;
-	}
-
-	public int getRepetcionesCompletadas() 
-	{
-		return repetcionesCompletadas;
-	}
-
-	public void setSeries(int s) 
-	{
-		this.series = s;
-	}
-
-	public void setRepeticiones(int r) 
-	{
-		this.repeticiones = r; 
-	}
-
-	public void setPesoAsignado(int p) 
-	{
-		this.pesoAsignado = p;
 	}
 }
