@@ -1,23 +1,28 @@
 package notificacion;
 
-import gamificacion.Trofeo;
-import observer.IObservador;
+import gamificacion.IObservable;
 
-
-public class Notificaciones implements IObservador {
+public class Notificador 
+{
     private IEstrategiaNotificacion estrategiaNotificacion;
 
-    public Notificaciones() {
+    public Notificador() {
         this.estrategiaNotificacion = new PushNotification();
     }
-
-    @Override
-    public void objetivoCumplido(Trofeo trofeo) {
-        //  Nothing to do
+    
+    public void notificarTrofeo(Notificacion noti)
+    {
+    	
     }
-
-    @Override
-    public void notificar(Notificacion notificacion) {
-        this.estrategiaNotificacion.notificar(notificacion);
+    
+    public void cambiarEstrategiaNotificacion(IEstrategiaNotificacion nueva_estrategia)
+    {
+    	
     }
+    
+    public void setNotificadoPor(IObservable observable)
+    {
+    	
+    }
+    
 }

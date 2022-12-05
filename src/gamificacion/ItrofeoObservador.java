@@ -4,10 +4,11 @@ import notificacion.Notificacion;
 
 public class ItrofeoObservador {
     
-    private string Nombre;
-    private notificacion notif;
+    private String Nombre;
+    private Notificacion notif;
 
-    public void controlTrofeo(){
+    public void controlTrofeo()
+    {
 
     }
     

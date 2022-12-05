@@ -1,19 +1,26 @@
 package mediciones;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 
 public class Medicion 
 {
     private double Peso;
-    private Date fecha;
+    private LocalDateTime fecha;
     private double GrasaMuscular;
     private double MasaMuscular;
 
     //constructor
-    public Medicion(double Peso, Date fecha, double GrasaMuscular, double MasaMuscular ) {
+    public Medicion(double Peso, double GrasaMuscular, double MasaMuscular ) 
+    {
+    	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");  
+		LocalDateTime f = LocalDateTime.now();  
+		//System.out.println(dtf.format(fecha));
+    	
         this.Peso = Peso;
-        this.fecha = new Date();
+        this.fecha = f;
         this.GrasaMuscular = GrasaMuscular;
         this.MasaMuscular = MasaMuscular;
     }
@@ -24,7 +31,7 @@ public class Medicion
         this.Peso = Peso;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
 
@@ -41,7 +48,7 @@ public class Medicion
         return Peso;
     }
 
-    public Date getFecha() {
+    public LocalDateTime getFecha() {
         return fecha;
     }
 

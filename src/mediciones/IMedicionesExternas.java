@@ -1,17 +1,13 @@
 package mediciones;
 
 import java.lang.reflect.Constructor;
+import java.util.List;
 
-public abstract class IMedicionesExternas extends MedicionesExternas
+import socio.Socio;
+
+public interface IMedicionesExternas  
 {
-
-	public Medicion registrarMedicionAdapter() {
-		return registrarMedicion();
-	}
-	
-	public double getMetidiconesIdealesAdapter() {
-		return getMetidiconesIdeales();
-	}
-
+	public void registrarMedicionAdapter(List<Medicion> l);
+	public Medicion getMetidiconesIdealesAdapter(Medicion medicionActual);
 }
 	

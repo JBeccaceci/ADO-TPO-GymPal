@@ -1,32 +1,38 @@
 package notificacion;
 
-import gamificacion.Trofeo;
+import gamificacion.ItrofeoObservador;
+import socio.Socio;
 
-public class Notificacion {
-    private Trofeo trofeo;
+public class Notificacion 
+{
+    private ItrofeoObservador trofeo;
+    private Socio socio;
     private String mensaje;
 
-    public Notificacion() {
+    public Notificacion() 
+    {
+    	
     }
 
-    public Notificacion(Trofeo trofeo, String mensaje) {
+    public Notificacion(ItrofeoObservador t, Socio s, String m) 
+    {
+        this.trofeo = t;
+        this.socio = s;
+        this.mensaje = m;
+    }
+
+    public void setTrofeo(ItrofeoObservador trofeo) 
+    {
         this.trofeo = trofeo;
-        this.mensaje = mensaje;
     }
 
-    public Trofeo getTrofeo() {
-        return trofeo;
-    }
-
-    public void setTrofeo(Trofeo trofeo) {
-        this.trofeo = trofeo;
-    }
-
-    public String getMensaje() {
+    public String getMensaje() 
+    {
         return mensaje;
     }
 
-    public void setMensaje(String mensaje) {
+    public void setMensaje(String mensaje) 
+    {
         this.mensaje = mensaje;
     }
 }

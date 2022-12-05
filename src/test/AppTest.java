@@ -42,6 +42,7 @@ public class AppTest {
 		r.comenzarEntrenamiento(r.getEntrenamientoActual());
 		eC = r.finalizarEntrenamiento(r.getEntrenamientoActual());
 		r.reinciarNmroEntActual();
+		r.guardarEC(eC);
 		System.out.println("\n");
 		System.out.println("**************************EC**************************" + "\n");
 		eC.mostrarEntrenamiento();

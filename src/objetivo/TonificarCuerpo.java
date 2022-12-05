@@ -5,12 +5,6 @@ import mediciones.Medicion;
 import rutina.Rutina;
 import enums.ExigenciaMuscular;
 
-import static enums.Clasificacion.Actual;
-import static enums.TipoMedicion.Altura;
-import static enums.TipoMedicion.GrasaCorporal;
-import static enums.TipoMedicion.MasaMuscular;
-import static enums.TipoMedicion.Peso;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
@@ -29,25 +23,8 @@ public class TonificarCuerpo implements TipoObjetivo
         return this.generarRutina();
     }
 
-    public boolean cumpleObjetivo(List<Medicion> mediciones) {
-    	 boolean controlGrasaCorporalIdeal = false, controlMasaMuscularIdeal = false;
-    	 int grasaCorporalActual = 0, masaMuscularActual = 0;
-         for (Medicion m : mediciones) 
-         {
-             if (m.getClasificacion() == Actual && m.getTipo() == GrasaCorporal) {
-            	 grasaCorporalActual = m.getValor();
-            	 controlGrasaCorporalIdeal = m.getME().GrasaCorporalIdeal() == grasaCorporalActual;             
-             }
-             
-             if (m.getClasificacion() == Actual && m.getTipo() == MasaMuscular) {
-            	 masaMuscularActual = m.getValor(); 
-            	 controlMasaMuscularIdeal = m.getME().MasaMuscularlIdeal() == masaMuscularActual;
-             }
-             
-             if(grasaCorporalActual != 0 & masaMuscularActual != 0) {
-            	 return controlGrasaCorporalIdeal && controlMasaMuscularIdeal;
-             }
-         }
+    public boolean cumpleObjetivo(List<Medicion> mediciones) 
+    {
          
          return false;
     }

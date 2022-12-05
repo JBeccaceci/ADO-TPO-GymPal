@@ -11,12 +11,6 @@ import java.util.stream.Collectors;
 import rutina.Ejercicio;
 import rutina.Entrenamiento;
 
-import static enums.Clasificacion.Actual;
-import static enums.TipoMedicion.GrasaCorporal;
-import static enums.TipoMedicion.MasaMuscular;
-import static enums.TipoMedicion.Peso;
-import static enums.TipoMedicion.Altura;
-
 
 public class BajarPeso implements TipoObjetivo {
 
@@ -35,17 +29,8 @@ public class BajarPeso implements TipoObjetivo {
            return new Rutina(entrenamientoList, ExigenciaMuscular.Medio, 80, 3);
     }
 
-    public boolean cumpleObjetivo(List<Medicion> mediciones) {
-        int pesoActual = 0;
-        for (Medicion m : mediciones) 
-        {
-            if (m.getClasificacion() == Actual && m.getTipo() == Peso) 
-            {
-            	pesoActual = m.getValor();
-            	//EL CONTROL O CALCULO DE IDEAL se encarga las mediciones externas
-                return pesoActual == m.getME().PesoIdeal();
-            }
-        }
+    public boolean cumpleObjetivo(List<Medicion> mediciones) 
+    {
         return false;
     }
     

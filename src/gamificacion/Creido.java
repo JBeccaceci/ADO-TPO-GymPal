@@ -1,9 +1,7 @@
 package gamificacion;
 
-import socio.Historial;
-import socio.Socio;
 
-public class Creido implements Trofeo
+public class Creido extends ItrofeoObservador
 {
     public String Nombre;
        
@@ -11,10 +9,9 @@ public class Creido implements Trofeo
         this.Nombre = nombre;
     }
 
-    public boolean cumpleTrofeo(Socio socio) {
-    	Historial h = socio.getHistorial();
-    	int cantidadPesajeMes = h.getCantidadPesajesMes();
-        return cantidadPesajeMes > 3;
+    public boolean cumpleTrofeo() 
+    {
+    	return false;
     }
 
 }

@@ -1,12 +1,7 @@
 package gamificacion;
 
-import java.util.*;
 
-import entrenamiento.Objetivo;
-import objetivo.TipoObjetivo;
-import socio.Socio;
-
-public class Dedicacion implements Trofeo
+public class Dedicacion extends ItrofeoObservador
 {
     public String Nombre;
 
@@ -14,10 +9,8 @@ public class Dedicacion implements Trofeo
         this.Nombre = nombre;
     }
 
-    public boolean cumpleTrofeo(Socio socio) 
+    public boolean cumpleTrofeo() 
     {
-        Objetivo obj = socio.getObjetivo();
-        TipoObjetivo tipo = obj.getTipoObjetivo();
-        return tipo.cumpleObjetivo(socio.getMediciones());
+    	return false;
     }
 }

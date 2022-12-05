@@ -1,9 +1,11 @@
 package objetivo;
 
-import observer.Observados;
+import gamificacion.IObservable;
+import gamificacion.ItrofeoObservador;
+import gamificacion.IObservable;
 import rutina.Rutina;
 
-public class Objetivo extends Observados {
+public class Objetivo implements IObservable {
 
 	private TipoObjetivo tipoObjetivo;
     private Rutina rutina;
@@ -35,4 +37,22 @@ public class Objetivo extends Observados {
     public Rutina getRutina() {
         return rutina;
     }
+
+	@Override
+	public void agregarObservador(ItrofeoObservador obs) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminarObservador(ItrofeoObservador obs) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void notificartrofeo() {
+		// TODO Auto-generated method stub
+		
+	}
 }

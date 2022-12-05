@@ -1,15 +1,6 @@
 package gamificacion;
 
-import entrenamiento.Entrenamiento;
-import entrenamiento.Objetivo;
-import rutina.Rutina;
-import socio.Historial;
-import socio.Socio;
-
-import java.util.List;
-
-
-public class Constancia implements Trofeo
+public class Constancia extends ItrofeoObservador
 {
     public String Nombre;
 
@@ -17,16 +8,9 @@ public class Constancia implements Trofeo
         this.Nombre = nombre;
     }
 
-    public boolean cumpleTrofeo(Socio socio) {
-        Historial historial = socio.getHistorial();
-        Objetivo obj = socio.getObjetivo();
-        Rutina rutina = obj.getRutina();
-        List<Entrenamiento> entrenamientos = rutina.getEntrenamientos();
-
-        int totalEntrenamientos = entrenamientos.size() - 1;
-        int entrenamientosCompletados = historial.getEntrenamientosCompletados();
-
-        return totalEntrenamientos == entrenamientosCompletados;
+    public boolean cumpleTrofeo() 
+    {
+       return false;
     }
 
 }

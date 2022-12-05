@@ -2,22 +2,23 @@ package mediciones;
 
 import java.util.List;
 import mediciones.Medicion;
+import socio.Socio;
+import mediciones.IMedicionesExternas;
 
-public class MedicionesExternas 
+public class MedicionesExternas implements IMedicionesExternas
 {
 	
 	//valores de pesaje actual de usaurio
-	public Medicion registrarMedicion() {
+	public void registrarMedicionAdapter(List<Medicion> l) 
+	{
+		Medicion medicionActual = new Medicion(80, 20, 40);
+		guardarMedicionesSocio(l, medicionActual);
 		
-		Medicion medicionActual = new Medicion();
-		medicionActual.setPeso(80);
-		medicionActual.setFecha(null);
-		medicionActual.setGrasaMuscular(20);
-		medicionActual.setMasaMuscular(40);
 	}
 	
 	//valores de pesaje ideal de usaurio
-	public Medicion getMetidiconesIdeales(Medicion medicionActual) {
+	public Medicion getMetidiconesIdealesAdapter(Medicion medicionActual) 
+	{
 
 		double pesoActual = medicionActual.getPeso();
 		double pesoIdeal = pesoActual * 0.95; 
@@ -28,12 +29,12 @@ public class MedicionesExternas
 		double MasaActual = medicionActual.getGrasaMuscular();
 		double MasaIdeal = MasaActual * 0.9;
 
-		Medicion medicionIdeal = new Medicion();
-		medicionIdeal.setPeso(pesoIdeal);
-		medicionIdeal.setFecha(null);
-		medicionIdeal.setGrasaMuscular(GrasaIdeal);
-		medicionIdeal.setMasaMuscular(MasaIdeal);
+		Medicion medicionIdeal = new Medicion(pesoIdeal, GrasaIdeal, MasaIdeal);
+		return medicionIdeal;
 	}
 	
-
+	private void guardarMedicionesSocio(List<Medicion> l, Medicion m)
+	{
+		l.add(m);
+	}
 }

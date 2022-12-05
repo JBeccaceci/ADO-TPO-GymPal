@@ -5,9 +5,6 @@ import mediciones.Medicion;
 import rutina.Rutina;
 import enums.ExigenciaMuscular;
 
-import static enums.TipoMedicion.Peso;
-import static enums.Clasificacion.Inicial;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,12 +27,7 @@ public class MantenerFigura implements TipoObjetivo
 
     public boolean cumpleObjetivo(List<Medicion> mediciones) {
     	 int pesoInicial = 0;
-         for (Medicion m : mediciones) {
-             if (m.getClasificacion() == Inicial && m.getTipo() == Peso) {
-            	 pesoInicial = m.getValor();
-                 break;
-             }
-         }
+    	 
          return pesoInicial >= rangoPeso - 5 & pesoInicial <= rangoPeso + 5;
     }
 
