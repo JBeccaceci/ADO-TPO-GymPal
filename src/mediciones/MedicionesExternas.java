@@ -22,7 +22,7 @@ public class MedicionesExternas implements IMedicionesExternas
 	{
 
 		double pesoActual = medicionActual.getPeso();
-		double pesoIdeal = pesoActual * ideal; 
+		double pesoIdeal = pesoActual * 2; 
 
 		double GrasaActual = medicionActual.getGrasaCorporal();
 		double GrasaIdeal = GrasaActual * ideal; 

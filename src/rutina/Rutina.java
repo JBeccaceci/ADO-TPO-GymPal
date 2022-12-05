@@ -73,6 +73,11 @@ public class Rutina implements IObservable {
     	return entrenamientos.get(nmroEntrenamiento);
     }
     
+    public List<EntrenamientoCompletado> getECs()
+    {
+    	return this.entrenamientosCompletados;
+    }
+    
     public void reinciarNmroEntActual()
     {
     	this.nmroEntrenamiento = 0;
@@ -100,6 +105,17 @@ public class Rutina implements IObservable {
 			}
 		}
 	}
+    
+    public void mostrarEntrenamientosCompletados()
+	{
+		int largo = entrenamientosCompletados.size();
+		for(int i = 0; i < largo; i++)
+		{
+			entrenamientosCompletados.get(i).mostrarEntrenamiento();
+			System.out.println("\n");
+		}
+	}
+	
 
 	@Override
 	public void agregarObservador(ItrofeoObservador obs) {

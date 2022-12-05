@@ -59,7 +59,8 @@ public class AppTest {
 		r.guardarEC(eC);
 		System.out.println("\n");
 		System.out.println("**************************EC**************************" + "\n");
-		eC.mostrarEntrenamiento();
+		//eC.mostrarEntrenamiento();
+		r.mostrarEntrenamientosCompletados();
 	}
 	
 	public static void reforzarRutina(Rutina r)
