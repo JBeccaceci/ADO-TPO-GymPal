@@ -44,11 +44,6 @@ public class Socio implements IObservable
     	AdapterM.registrarMedicionAdapter(mediciones);
     }
     
-    public void guardarMedicion(Medicion m)
-    {
-    	mediciones.add(m);
-    }
-    
 	public void agregarObservador(ItrofeoObservador obs) 
 	{
 		

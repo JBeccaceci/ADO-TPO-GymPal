@@ -2,6 +2,7 @@ import socio.Socio;
 import objetivo.Objetivo;
 import enums.Sexo;
 import objetivo.BajarPeso;
+import objetivo.MantenerFigura;
 import objetivo.TipoObjetivo;
 import rutina.EntrenamientoCompletado;
 import rutina.Rutina;

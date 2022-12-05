@@ -13,7 +13,6 @@ public class MedicionesExternas implements IMedicionesExternas
 	{
 		Medicion medicionActual = new Medicion(80, 20, 40);
 		guardarMedicionesSocio(l, medicionActual);
-		
 	}
 	
 	//valores de pesaje ideal de usaurio
