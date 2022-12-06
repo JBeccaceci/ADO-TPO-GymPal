@@ -34,12 +34,12 @@ public class AppTest {
 		generarRutina(socio);
 		
 		//RUTINA
-		//reforzarRutina(obj.getRutina());
-		//realizarEntrenamiento(obj.getRutina());
+		reforzarRutina(socio.getObjetivo().getRutina());
+		//realizarEntrenamiento(socio.getObjetivo().getRutina());
 		
-		//realizarEntrenamiento(obj.getRutina());
 		
 		//OBJETIVO
+		//ingresamos 3 veces las mediciones para lograr el trofeo creido
 		socio.ingresarMediciones();
 		socio.ingresarMediciones();
 		socio.ingresarMediciones();
@@ -47,9 +47,9 @@ public class AppTest {
 		
 		//realizamos el entrenamiento 4 veces porque seria las 4 semanas, teniendo solo un entrenamiento a la semana (por eso cumple con el trofeo constancia)
 		realizarEntrenamiento(socio.getObjetivo().getRutina());
-		realizarEntrenamiento(socio.getObjetivo().getRutina());
-		realizarEntrenamiento(socio.getObjetivo().getRutina());
-		realizarEntrenamiento(socio.getObjetivo().getRutina());
+		//realizarEntrenamiento(socio.getObjetivo().getRutina());
+		//realizarEntrenamiento(socio.getObjetivo().getRutina());
+		//realizarEntrenamiento(socio.getObjetivo().getRutina());
 		
 		//TROFEOS-OBSERVER
 		controlTrofeoCreido(socio, notificador);
