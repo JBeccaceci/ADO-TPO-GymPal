@@ -7,5 +7,5 @@ public interface IObservable
 {
     public void agregarObservador(ItrofeoObservador obs);
     public void eliminarObservador(ItrofeoObservador obs);
-    public void notificartrofeo();
+    public void notificarObservadores();
 }

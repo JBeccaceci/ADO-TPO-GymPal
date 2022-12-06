@@ -3,6 +3,10 @@ import objetivo.Objetivo;
 import objetivo.TipoObjetivo;
 import objetivo.TonificarCuerpo;
 import enums.Sexo;
+import gamificacion.Constancia;
+import gamificacion.Creido;
+import gamificacion.Dedicacion;
+import gamificacion.ItrofeoObservador;
 import objetivo.BajarPeso;
 import objetivo.MantenerFigura;
 import rutina.EntrenamientoCompletado;
@@ -28,9 +32,20 @@ public class AppTest {
 		
 		//OBJETIVO
 		socio.ingresarMediciones();
-		verificarCumpleObj(obj.getTipoObjetivo(), socio);
+		socio.ingresarMediciones();
+		//socio.ingresarMediciones();
+		verificarCumpleObj(socio);
 		
-		realizarEntrenamiento(obj.getRutina());
+		//realizamos el entrenamiento 4 veces porque seria las 4 semanas, teniendo solo un entrenamiento a la semana (por eso cumple con el trofeo constancia)
+		realizarEntrenamiento(socio.getObjetivo().getRutina());
+		realizarEntrenamiento(socio.getObjetivo().getRutina());
+		realizarEntrenamiento(socio.getObjetivo().getRutina());
+		//realizarEntrenamiento(socio.getObjetivo().getRutina());
+		
+		//TROFEOS-OBSERVER
+		controlTrofeoCreido(socio);
+		controlTrofeoConstancia(socio.getObjetivo().getRutina());
+		controlTrofeoDedicacion(socio.getObjetivo());
 	}
 	
 	public static void generarSocio()
@@ -66,14 +81,15 @@ public class AppTest {
 		r.refuerzo();
 	}
 	
-	public static void verificarCumpleObj(TipoObjetivo tipo, Socio socio)
+	public static void verificarCumpleObj(Socio socio)
 	{
 		System.out.println("Verificamos el cumplimiento del objetivo....");
 		
-		if(tipo.cumpleObjetivo(socio) == true)
+		
+		if(socio.getObjetivo().verificarCumpleObjetivo(socio) == true)
 		{
 			System.out.println("Cumpliste con el objetivo!!!");
-			if(tipo.ProponerMantenerFigura() == true)
+			if(socio.getObjetivo().getTipoObjetivo().ProponerMantenerFigura() == true)
 			{
 				socio.getObjetivo().cambiarObjetivo(new MantenerFigura());
 			}
@@ -82,5 +98,44 @@ public class AppTest {
 		{
 			System.out.println("No cumpliste con el objetivo...:c");
 		}
+	}
+	
+	public static void controlTrofeoCreido(Socio socio)
+	{
+		Creido creido = new Creido("creido");
+		socio.agregarObservador(creido);
+		
+		if(creido.cumpleTrofeo(socio) == true)
+		{
+			socio.notificarObservadores();
+		}
+		
+		socio.eliminarObservador(creido);
+	}
+	
+	public static void controlTrofeoConstancia(Rutina r)
+	{
+		Constancia constancia = new Constancia("constancia");
+		r.agregarObservador(constancia);
+		
+		if(constancia.cumpleTrofeo(r) == true)
+		{
+			r.notificarObservadores();
+		}
+		
+		r.eliminarObservador(constancia);
+	}
+	
+	public static void controlTrofeoDedicacion(Objetivo obj)
+	{
+		Dedicacion dedicacion = new Dedicacion("dedicacion");
+		obj.agregarObservador(dedicacion);
+		
+		if(dedicacion.cumpleTrofeo(obj) == true)
+		{
+			obj.notificarObservadores();
+		}
+		
+		obj.eliminarObservador(dedicacion);
 	}
 }

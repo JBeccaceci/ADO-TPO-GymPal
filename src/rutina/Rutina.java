@@ -21,6 +21,7 @@ public class Rutina implements IObservable {
     private ExigenciaMuscular exigenciaMuscular;
     private int tiempoEntrenamiento;
     private int nivelAerobico;
+    private List<ItrofeoObservador> observadores;
 
     public Rutina() {
     }
@@ -37,6 +38,7 @@ public class Rutina implements IObservable {
         this.nivelAerobico = nivelAerobico;
         this.nmroEntrenamiento = 0;
         this.entrenamientosCompletados = new ArrayList<>();
+        this.observadores = new ArrayList<ItrofeoObservador>();
     }
 
     public void comenzarEntrenamiento(Entrenamiento e) 
@@ -116,22 +118,21 @@ public class Rutina implements IObservable {
 		}
 	}
 	
-
-	@Override
-	public void agregarObservador(ItrofeoObservador obs) {
-		// TODO Auto-generated method stub
-		
+    public void agregarObservador(ItrofeoObservador obs) 
+	{
+		observadores.add(obs);
 	}
-
-	@Override
-	public void eliminarObservador(ItrofeoObservador obs) {
-		// TODO Auto-generated method stub
-		
+	
+	public void eliminarObservador(ItrofeoObservador obs) 
+	{
+		observadores.remove(obs);
 	}
-
-	@Override
-	public void notificartrofeo() {
-		// TODO Auto-generated method stub
-		
+	
+	public void notificarObservadores() 
+	{
+		for(ItrofeoObservador observador: observadores)
+		{
+			observador.notificarTrofeo();
+		}
 	}
 }

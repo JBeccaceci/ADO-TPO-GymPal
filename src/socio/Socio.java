@@ -46,17 +46,20 @@ public class Socio implements IObservable
     
 	public void agregarObservador(ItrofeoObservador obs) 
 	{
-		
+		observadores.add(obs);
 	}
 	
 	public void eliminarObservador(ItrofeoObservador obs) 
 	{
-		
+		observadores.remove(obs);
 	}
 	
-	public void notificartrofeo() 
+	public void notificarObservadores() 
 	{
-		
+		for(ItrofeoObservador observador: observadores)
+		{
+			observador.notificarTrofeo();
+		}
 	}
 	
     public int getPeso() 
