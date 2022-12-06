@@ -9,7 +9,7 @@ import mediciones.IMedicionesExternas;
 
 public class MedicionesExternas implements IMedicionesExternas
 {
-	private float ideal = 2;
+	private float ideal = 1;
 	private int cantPesajesMes = 0;
 	private int mesUltimaMedicion;
 	

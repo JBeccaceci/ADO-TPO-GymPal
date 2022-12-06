@@ -1,18 +1,22 @@
 package gamificacion;
 
+import notificacion.Notificacion;
+import notificacion.Notificador;
 import socio.Socio;
 
 public class Creido extends ItrofeoObservador
 {
-    public String Nombre;
+    private String Nombre;
        
-    public Creido(String nombre) {
+    public Creido(String nombre) 
+    {
         this.Nombre = nombre;
     }
     
-	public void notificarTrofeo() 
+	public void notificarTrofeo(Notificador notificador, Notificacion notificacion) 
     {
-		System.out.println("Ganaste el trofeo " + Nombre + ".");
+		notificador.enviar(notificacion);
+		//System.out.println("Ganaste el trofeo " + Nombre + ".");
 	}
 
     public boolean cumpleTrofeo(Socio socio) 

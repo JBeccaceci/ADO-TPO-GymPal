@@ -7,6 +7,11 @@ import gamificacion.Constancia;
 import gamificacion.Creido;
 import gamificacion.Dedicacion;
 import gamificacion.ItrofeoObservador;
+import notificacion.IEstrategiaNotificacion;
+import notificacion.Notificacion;
+import notificacion.Notificador;
+import notificacion.PushNotification;
+import notificacion.proveedor.FireBaseAdapter;
 import objetivo.BajarPeso;
 import objetivo.MantenerFigura;
 import rutina.EntrenamientoCompletado;
@@ -20,6 +25,10 @@ public class AppTest {
 	
 	public static void main(String[] args) 
 	{
+		Notificador notificador = new Notificador();
+		IEstrategiaNotificacion estrategia = new PushNotification(new FireBaseAdapter());
+		notificador.cambiarEstrategiaNotificacion(estrategia);
+		
 		//SOCIO
 		generarSocio();
 		generarRutina(socio);
@@ -33,25 +42,25 @@ public class AppTest {
 		//OBJETIVO
 		socio.ingresarMediciones();
 		socio.ingresarMediciones();
-		//socio.ingresarMediciones();
+		socio.ingresarMediciones();
 		verificarCumpleObj(socio);
 		
 		//realizamos el entrenamiento 4 veces porque seria las 4 semanas, teniendo solo un entrenamiento a la semana (por eso cumple con el trofeo constancia)
 		realizarEntrenamiento(socio.getObjetivo().getRutina());
 		realizarEntrenamiento(socio.getObjetivo().getRutina());
 		realizarEntrenamiento(socio.getObjetivo().getRutina());
-		//realizarEntrenamiento(socio.getObjetivo().getRutina());
+		realizarEntrenamiento(socio.getObjetivo().getRutina());
 		
 		//TROFEOS-OBSERVER
-		controlTrofeoCreido(socio);
-		controlTrofeoConstancia(socio.getObjetivo().getRutina());
-		controlTrofeoDedicacion(socio.getObjetivo());
+		controlTrofeoCreido(socio, notificador);
+		controlTrofeoConstancia(socio.getObjetivo().getRutina(), notificador);
+		controlTrofeoDedicacion(socio.getObjetivo(), notificador);
 	}
 	
 	public static void generarSocio()
 	{
 		//null seria el objetivo que luego lo seteamos en generarRutina()
-		socio = new Socio(25, Sexo.Masculino, 1.7f, null);
+		socio = new Socio(25, Sexo.Masculino, 1.7f, null, "tomas01234");
 	}
 	
 	public static void generarRutina(Socio socio)
@@ -100,40 +109,56 @@ public class AppTest {
 		}
 	}
 	
-	public static void controlTrofeoCreido(Socio socio)
+	public static void controlTrofeoCreido(Socio socio, Notificador notificador)
 	{
 		Creido creido = new Creido("creido");
 		socio.agregarObservador(creido);
 		
+		Notificacion noti = new Notificacion();
+		noti.setMensaje("Ganaste el trofeo");
+		noti.setSocio(socio.getCuenta().getNombreCuenta());
+		noti.setTrofeo(creido.getNombre());
+		
+		
 		if(creido.cumpleTrofeo(socio) == true)
 		{
-			socio.notificarObservadores();
+			socio.notificarObservadores(notificador, noti);
 		}
 		
 		socio.eliminarObservador(creido);
 	}
 	
-	public static void controlTrofeoConstancia(Rutina r)
+	public static void controlTrofeoConstancia(Rutina r, Notificador notificador)
 	{
 		Constancia constancia = new Constancia("constancia");
 		r.agregarObservador(constancia);
 		
+		Notificacion noti = new Notificacion();
+		noti.setMensaje("Ganaste el trofeo");
+		noti.setSocio(socio.getCuenta().getNombreCuenta());
+		noti.setTrofeo(constancia.getNombre());
+		
 		if(constancia.cumpleTrofeo(r) == true)
 		{
-			r.notificarObservadores();
+			r.notificarObservadores(notificador, noti);
 		}
 		
 		r.eliminarObservador(constancia);
 	}
 	
-	public static void controlTrofeoDedicacion(Objetivo obj)
+	public static void controlTrofeoDedicacion(Objetivo obj, Notificador notificador)
 	{
 		Dedicacion dedicacion = new Dedicacion("dedicacion");
 		obj.agregarObservador(dedicacion);
 		
+		Notificacion noti = new Notificacion();
+		noti.setMensaje("Ganaste el trofeo");
+		noti.setSocio(socio.getCuenta().getNombreCuenta());
+		noti.setTrofeo(dedicacion.getNombre());
+		
 		if(dedicacion.cumpleTrofeo(obj) == true)
 		{
-			obj.notificarObservadores();
+			obj.notificarObservadores(notificador, noti);
 		}
 		
 		obj.eliminarObservador(dedicacion);

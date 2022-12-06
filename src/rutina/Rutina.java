@@ -3,6 +3,7 @@ package rutina;
 import enums.ExigenciaMuscular;
 import gamificacion.Constancia;
 import notificacion.Notificacion;
+import notificacion.Notificador;
 import gamificacion.IObservable;
 import gamificacion.ItrofeoObservador;
 import socio.Socio;
@@ -128,11 +129,11 @@ public class Rutina implements IObservable {
 		observadores.remove(obs);
 	}
 	
-	public void notificarObservadores() 
+	public void notificarObservadores(Notificador notificador, Notificacion notificacion) 
 	{
 		for(ItrofeoObservador observador: observadores)
 		{
-			observador.notificarTrofeo();
+			observador.notificarTrofeo(notificador, notificacion);
 		}
 	}
 }

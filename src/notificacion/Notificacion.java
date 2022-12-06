@@ -5,32 +5,36 @@ import socio.Socio;
 
 public class Notificacion 
 {
-    private ItrofeoObservador trofeo;
-    private Socio socio;
+    private String trofeo;
+    private String cuentaSocio;
     private String mensaje;
 
-    public Notificacion() 
+    
+    public String getTrofeo()
     {
-    	
+    	return trofeo;
     }
-
-    public Notificacion(ItrofeoObservador t, Socio s, String m) 
+    
+    public String getSocio()
     {
-        this.trofeo = t;
-        this.socio = s;
-        this.mensaje = m;
-    }
-
-    public void setTrofeo(ItrofeoObservador trofeo) 
-    {
-        this.trofeo = trofeo;
+    	return cuentaSocio;
     }
 
     public String getMensaje() 
     {
         return mensaje;
     }
-
+    
+    public void setTrofeo(String trofeo) 
+    {
+        this.trofeo = trofeo;
+    }
+    
+    public void setSocio(String socio)
+    {
+    	this.cuentaSocio = socio;
+    }
+    
     public void setMensaje(String mensaje) 
     {
         this.mensaje = mensaje;

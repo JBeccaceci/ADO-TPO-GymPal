@@ -1,18 +1,21 @@
 package gamificacion;
 
+import notificacion.Notificacion;
+import notificacion.Notificador;
 import rutina.Rutina;
 
 public class Constancia extends ItrofeoObservador
 {
-    public String Nombre;
+    private String Nombre;
 
     public Constancia(String nombre) {
         this.Nombre = nombre;
     }
 
-    public void notificarTrofeo() 
+    public void notificarTrofeo(Notificador notificador, Notificacion notificacion) 
     {
-		System.out.println("Ganaste el trofeo " + Nombre + ".");
+    	notificador.enviar(notificacion);
+		//System.out.println("Ganaste el trofeo " + Nombre + ".");
 	}
     
     public boolean cumpleTrofeo(Rutina r) 

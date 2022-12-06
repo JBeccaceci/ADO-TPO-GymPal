@@ -4,25 +4,15 @@ import gamificacion.IObservable;
 
 public class Notificador 
 {
-    private IEstrategiaNotificacion estrategiaNotificacion;
+    private IEstrategiaNotificacion estrategia;
 
-    public Notificador() {
-        this.estrategiaNotificacion = new PushNotification();
-    }
-    
-    public void notificarTrofeo(Notificacion noti)
+    public void enviar(Notificacion notificacion)
     {
-    	
+    	this.estrategia.notificar(notificacion);
     }
     
-    public void cambiarEstrategiaNotificacion(IEstrategiaNotificacion nueva_estrategia)
+    public void cambiarEstrategiaNotificacion(IEstrategiaNotificacion nuevaEstrategia)
     {
-    	
+    	this.estrategia = nuevaEstrategia;
     }
-    
-    public void setNotificadoPor(IObservable observable)
-    {
-    	
-    }
-    
 }

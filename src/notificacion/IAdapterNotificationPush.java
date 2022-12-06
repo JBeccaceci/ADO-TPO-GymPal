@@ -1,5 +1,6 @@
 package notificacion;
 
-public interface IAdapterNotificationPush {
+public interface IAdapterNotificationPush
+{
     void notificar(Notificacion notificacion);
 }

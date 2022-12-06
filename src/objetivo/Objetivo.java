@@ -6,6 +6,8 @@ import java.util.List;
 import gamificacion.IObservable;
 import gamificacion.ItrofeoObservador;
 import mediciones.Medicion;
+import notificacion.Notificacion;
+import notificacion.Notificador;
 import gamificacion.IObservable;
 import rutina.Rutina;
 import socio.Socio;
@@ -64,11 +66,11 @@ public class Objetivo implements IObservable {
 		observadores.remove(obs);
 	}
 	
-	public void notificarObservadores() 
+	public void notificarObservadores(Notificador notificador, Notificacion notificacion) 
 	{
 		for(ItrofeoObservador observador: observadores)
 		{
-			observador.notificarTrofeo();
+			observador.notificarTrofeo(notificador, notificacion);
 		}
 	}
 }

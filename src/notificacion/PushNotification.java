@@ -1,17 +1,25 @@
 package notificacion;
 
-public class PushNotification implements IEstrategiaNotificacion {
-    private IAdapterNotificationPush adapterNotificationPush;
 
-    public PushNotification() {
+
+public class PushNotification implements IEstrategiaNotificacion 
+{
+    private IAdapterNotificationPush adapter;
+
+    
+    public PushNotification(IAdapterNotificationPush adapter)
+    {
+    	super();
+    	this.adapter = adapter;
     }
-
-    public void setAdapterNotificationPush(IAdapterNotificationPush adapterNotificationPush) {
-        this.adapterNotificationPush = adapterNotificationPush;
+    
+	public void setAdapter(IAdapterNotificationPush adapter) 
+    {
+        this.adapter = adapter;
     }
-
-    @Override
-    public void notificar(Notificacion notificacion) {
-        adapterNotificationPush.notificar(notificacion);
+    
+    public void notificar(Notificacion notificacion) 
+    {
+    	adapter.notificar(notificacion);
     }
 }

@@ -1,13 +1,13 @@
 package gamificacion;
 
 import notificacion.Notificacion;
+import notificacion.Notificador;
 import socio.Socio;
 
 public abstract class ItrofeoObservador {
     
     private String Nombre;
-    private Notificacion notificacion;
 
-    public abstract void notificarTrofeo(); 
+    public abstract void notificarTrofeo(Notificador notfiicador, Notificacion notificacion); 
     
 }
